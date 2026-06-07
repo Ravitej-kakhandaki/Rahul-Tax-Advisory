@@ -1,0 +1,91 @@
+{
+  "theme": "LIGHT",
+  "archetype": "1 (Organic & Earthy)",
+  "emotional_tone": "Trustworthy, Premium, Precise, Established, Grounded",
+  "typography": {
+    "heading_font": "Cormorant Garamond",
+    "body_font": "Manrope",
+    "subheading_font": "Outfit",
+    "rules": {
+      "h1": "text-5xl sm:text-6xl tracking-tight leading-none",
+      "h2": "text-3xl sm:text-4xl tracking-tight",
+      "h3": "text-xl sm:text-2xl",
+      "body": "text-base leading-relaxed",
+      "labels": "uppercase text-xs tracking-[0.2em]"
+    }
+  },
+  "colors": {
+    "primary": "#1C3F39",
+    "secondary": "#A85A46",
+    "background": "#F9F6F0",
+    "surface": "#FFFFFF",
+    "text_primary": "#1C3F39",
+    "text_secondary": "#4B5563",
+    "border": "#E6E4DD"
+  },
+  "spacing_and_layout": {
+    "philosophy": "Generous Spacing, Optical Alignment",
+    "containers": "p-8 md:p-12 lg:p-20",
+    "marketing_grid": "grid-cols-1 md:grid-cols-12 gap-8 md:gap-12",
+    "dashboard_grid": "grid-cols-1 md:grid-cols-4 gap-4 md:gap-6"
+  },
+  "components": {
+    "header": {
+      "style": "Glassmorphism",
+      "classes": "sticky top-0 z-50 bg-[#F9F6F0]/80 backdrop-blur-xl border-b border-[#1C3F39]/10"
+    },
+    "hero": {
+      "style": "Asymmetrical, large typography, high-quality image with slight overlay if needed",
+      "overlay": "bg-gradient-to-r from-[#1C3F39]/80 to-transparent"
+    },
+    "cards": {
+      "style": "Flat, 1px subtle border, no shadow by default",
+      "hover": "-translate-y-1 shadow-lg",
+      "border_radius": "rounded-sm"
+    },
+    "footer": {
+      "style": "Massive Space, Contrast Shift",
+      "classes": "py-20 md:py-32 bg-[#1C3F39] text-[#F9F6F0]",
+      "large_text": "text-[8vw] md:text-[10vw] leading-none"
+    },
+    "buttons": {
+      "primary": "bg-[#1C3F39] text-white hover:bg-[#1C3F39]/90 rounded-sm px-6 py-3",
+      "secondary": "border border-[#1C3F39] text-[#1C3F39] hover:bg-[#1C3F39] hover:text-white rounded-sm px-6 py-3"
+    }
+  },
+  "images": [
+    {
+      "category": "hero",
+      "url": "https://images.pexels.com/photos/8092466/pexels-photo-8092466.jpeg",
+      "description": "Elegant minimalist workspace with wooden desk"
+    },
+    {
+      "category": "hero_alternative",
+      "url": "https://images.unsplash.com/photo-1479293581560-aee98bb24f7f",
+      "description": "Gray glass building"
+    },
+    {
+      "category": "about_accountant",
+      "url": "https://images.pexels.com/photos/8296970/pexels-photo-8296970.jpeg",
+      "description": "Accountant analyzing financial documents"
+    },
+    {
+      "category": "outsourcing_paperwork",
+      "url": "https://images.unsplash.com/photo-1583521214690-73421a1829a9",
+      "description": "Stacks of paper documents"
+    }
+  ],
+  "icons": "lucide-react with strokeWidth={1.5}",
+  "motion": {
+    "hover": "transition-all duration-300 ease-out",
+    "entrance": "fade-in, slide-up with stagger"
+  },
+  "instructions_to_main_agent": [
+    "Use raw HTML/Tailwind for marketing sections. Do not use Shadcn for Hero or Marketing Grids.",
+    "Use Shadcn for Forms, Calendar, Inputs, and Dashboard components.",
+    "Add data-testid attributes to all interactive elements.",
+    "Maintain high contrast. Background is #F9F6F0, Primary text is #1C3F39.",
+    "Ensure all headings use Cormorant Garamond.",
+    "Instead of exact images for software logos (CCH, UltraTax), use stylized typography or lucide icons to represent the stack."
+  ]
+}
