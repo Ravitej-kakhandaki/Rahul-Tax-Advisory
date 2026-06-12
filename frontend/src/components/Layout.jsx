@@ -32,14 +32,14 @@ export function Header() {
           <span className="hidden md:inline text-[10px] uppercase tracking-[0.25em] text-[#A85A46] font-sub">est. 2025</span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-9 font-sub text-[14px]">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-7 font-sub text-[13px] lg:text-[14px]">
           {navItems.map((n) => (
             <NavLink
               key={n.to}
               to={n.to}
               data-testid={`nav-${n.label.toLowerCase()}`}
               className={({ isActive }) =>
-                `transition-colors ${isActive ? "text-[#A85A46]" : "text-[#1C3F39] hover:text-[#A85A46]"}`
+                `transition-colors whitespace-nowrap ${isActive ? "text-[#A85A46]" : "text-[#1C3F39] hover:text-[#A85A46]"}`
               }
               end={n.to === "/"}
             >
@@ -48,31 +48,31 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-3">
           {user ? (
             <>
-              <Link to="/portal" className="btn-ghost" data-testid="nav-portal">Client Portal</Link>
-              <button onClick={onLogout} className="text-sm font-sub text-[#1C3F39]/70 hover:text-[#A85A46]" data-testid="nav-logout">
+              <Link to="/portal" className="btn-ghost text-sm" data-testid="nav-portal">Client Portal</Link>
+              <button onClick={onLogout} className="text-sm font-sub text-[#1C3F39]/70 hover:text-[#A85A46] whitespace-nowrap" data-testid="nav-logout">
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="text-sm font-sub text-[#1C3F39] hover:text-[#A85A46]" data-testid="nav-login">Sign in</Link>
-              <Link to="/book" className="btn-primary text-sm" data-testid="nav-book">
+              <Link to="/login" className="text-sm font-sub text-[#1C3F39] hover:text-[#A85A46] whitespace-nowrap" data-testid="nav-login">Sign in</Link>
+              <Link to="/book" className="btn-primary text-[13px] lg:text-sm whitespace-nowrap" data-testid="nav-book">
                 Book CPA Growth Call <ArrowUpRight size={16} strokeWidth={1.5} />
               </Link>
             </>
           )}
         </div>
 
-        <button className="lg:hidden p-2 text-[#1C3F39]" onClick={() => setOpen((s) => !s)} aria-label="menu" data-testid="nav-menu-toggle">
+        <button className="md:hidden p-2 text-[#1C3F39]" onClick={() => setOpen((s) => !s)} aria-label="menu" data-testid="nav-menu-toggle">
           {open ? <X /> : <Menu />}
         </button>
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-[#1C3F39]/10 bg-[#F9F6F0]" data-testid="mobile-menu">
+        <div className="md:hidden border-t border-[#1C3F39]/10 bg-[#F9F6F0]" data-testid="mobile-menu">
           <div className="flex flex-col px-6 py-6 gap-4 font-sub">
             {navItems.map((n) => (
               <NavLink key={n.to} to={n.to} onClick={() => setOpen(false)} className="text-[#1C3F39] text-lg" data-testid={`mnav-${n.label.toLowerCase()}`}>
