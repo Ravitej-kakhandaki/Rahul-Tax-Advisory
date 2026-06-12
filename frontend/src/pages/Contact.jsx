@@ -41,7 +41,7 @@ export default function Contact() {
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 pt-16 md:pt-24 pb-12">
         <p className="kicker">Contact</p>
         <h1 className="font-serif-display text-5xl md:text-7xl text-[#1C3F39] mt-4 leading-[0.95] max-w-3xl">
-          Tell me what you're working through.
+          Speak directly with Rahul about your CPA firm's capacity and growth goals.
         </h1>
         <p className="mt-8 text-xl text-[#1C3F39]/75 max-w-2xl">
           One business day response — usually faster. If it's tax season, even faster.
@@ -89,8 +89,21 @@ export default function Contact() {
           </div>
         </form>
 
-        <aside className="md:col-span-4 space-y-6">
-          <div className="border border-[#1C3F39]/15 p-8 bg-[#FFFFFF]">
+        <aside className="md:col-span-4 space-y-6" data-testid="contact-aside">
+          <div className="bg-[#FFFFFF] border border-[#1C3F39]/15 overflow-hidden" data-testid="contact-portrait-card">
+            <img src="/rahul-portrait.jpg" alt="Rahul G Sataraddi" className="w-full aspect-[5/4] object-cover" />
+            <div className="p-7">
+              <p className="kicker">Speak with the founder</p>
+              <p className="font-serif-display text-2xl text-[#1C3F39] mt-3 leading-snug">Rahul G Sataraddi</p>
+              <p className="text-sm font-sub text-[#1C3F39]/70 mt-1">US Tax Professional · CPA Candidate</p>
+              <p className="mt-5 text-[15px] text-[#1C3F39]/80 leading-relaxed">
+                You'll talk directly with me — not an account manager. I read every message and
+                respond personally, usually within one business day.
+              </p>
+            </div>
+          </div>
+
+          <div className="border border-[#1C3F39]/15 p-7 bg-[#FFFFFF]">
             <p className="kicker">Direct</p>
             <ul className="mt-5 space-y-4">
               <li className="flex gap-3 items-start text-[#1C3F39]">
@@ -117,10 +130,12 @@ export default function Contact() {
               </li>
             </ul>
           </div>
-          <div className="bg-[#1C3F39] text-[#F9F6F0] p-8">
+
+          <div className="bg-[#1C3F39] text-[#F9F6F0] p-7">
             <p className="kicker text-[#E2B8A9]">Confidential</p>
-            <p className="font-serif-display text-2xl mt-3 leading-snug">
-              All client information is handled under standard NDA and US tax-practitioner confidentiality norms.
+            <p className="font-serif-display text-xl mt-3 leading-snug">
+              All client information is handled under standard NDA and US tax-practitioner
+              confidentiality norms.
             </p>
           </div>
         </aside>

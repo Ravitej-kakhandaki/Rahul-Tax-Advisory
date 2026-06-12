@@ -5,8 +5,8 @@ import {
   CheckCircle2, PhoneCall, Briefcase, Star, Download,
 } from "lucide-react";
 
-const heroImg = "https://images.pexels.com/photos/8092466/pexels-photo-8092466.jpeg";
-const aboutImg = "/rahul-portrait.jpg";
+const heroImg = "/rahul-portrait.jpg";
+const aboutImg = "https://images.pexels.com/photos/8092466/pexels-photo-8092466.jpeg";
 
 const heroBadges = [
   "Trusted by US CPA Firms",
@@ -109,11 +109,14 @@ export default function Home() {
 
             <div className="md:col-span-5 fade-up delay-2">
               <div className="relative">
-                <img src={heroImg} alt="Workspace" className="w-full aspect-[4/5] object-cover rounded-sm" />
-                <div className="absolute -bottom-6 -left-6 bg-[#F9F6F0] border border-[#1C3F39]/12 px-6 py-5 max-w-[260px]">
-                  <p className="kicker">Trusted partner</p>
-                  <p className="font-serif-display text-2xl text-[#1C3F39] leading-tight mt-2">
-                    For US CPA firms scaling through tax season.
+                <img src={heroImg} alt="Rahul G Sataraddi — Founder, Rahul Tax Advisory" className="w-full aspect-[4/5] object-cover rounded-sm" data-testid="hero-portrait" />
+                <div className="absolute -bottom-6 -left-6 bg-[#F9F6F0] border border-[#1C3F39]/12 px-6 py-5 max-w-[290px]">
+                  <p className="kicker">Founder</p>
+                  <p className="font-serif-display text-xl text-[#1C3F39] leading-tight mt-2">
+                    The professional behind your CPA firm's trusted tax partnership.
+                  </p>
+                  <p className="font-sub text-xs text-[#1C3F39]/65 mt-3">
+                    Rahul G Sataraddi · CPA Candidate
                   </p>
                 </div>
               </div>
@@ -170,37 +173,49 @@ export default function Home() {
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-24" data-testid="home-audit-promo">
         <div className="grid md:grid-cols-12 gap-8 items-start">
           {/* Left — 70% — Capacity Assessment */}
-          <div className="md:col-span-8 bg-[#FFFFFF] border border-[#1C3F39]/15 p-10 md:p-14">
-            <p className="kicker">Free CPA Capacity Assessment</p>
-            <h2 className="font-serif-display text-4xl md:text-6xl text-[#1C3F39] mt-4 leading-[1.05]">
-              Discover your firm's next capacity opportunity.
-            </h2>
-            <p className="mt-6 text-[#1C3F39]/75 text-lg max-w-2xl">
-              Receive a personalized CPA Capacity Report designed to help your firm improve
-              efficiency, strengthen workflows, and create more time for high-value client
-              relationships.
-            </p>
-            <p className="kicker mt-8">Your report includes</p>
-            <ul className="mt-3 grid sm:grid-cols-2 gap-3 font-sub">
-              {[
-                "Capacity and workflow assessment",
-                "Tax & accounting support opportunities",
-                "Busy season readiness insights",
-                "Recommended engagement approach",
-              ].map((b, i) => (
-                <li key={i} className="flex items-start gap-2 text-[#1C3F39]">
-                  <CheckCircle2 size={18} strokeWidth={1.5} className="text-[#A85A46] mt-0.5 shrink-0" />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link to="/audit" className="btn-primary" data-testid="home-audit-cta">
-                Get My Free Capacity Assessment <ArrowUpRight size={16} strokeWidth={1.5} />
-              </Link>
-              <Link to="/book" className="btn-ghost" data-testid="home-audit-book">
-                Or book a CPA Growth Call
-              </Link>
+          <div className="md:col-span-8 bg-[#FFFFFF] border border-[#1C3F39]/15 overflow-hidden">
+            <div className="grid md:grid-cols-5">
+              <div className="md:col-span-2 hidden md:block">
+                <img
+                  src="https://images.pexels.com/photos/8296970/pexels-photo-8296970.jpeg"
+                  alt="Reviewing tax planning workpapers"
+                  className="w-full h-full object-cover"
+                  data-testid="capacity-image"
+                />
+              </div>
+              <div className="md:col-span-3 p-10 md:p-12">
+                <p className="kicker">Free CPA Capacity Assessment</p>
+                <h2 className="font-serif-display text-3xl md:text-5xl text-[#1C3F39] mt-4 leading-[1.05]">
+                  Discover your firm's next capacity opportunity.
+                </h2>
+                <p className="mt-5 text-[#1C3F39]/75 text-[17px] leading-relaxed">
+                  Receive a personalized CPA Capacity Report designed to help your firm improve
+                  efficiency, strengthen workflows, and create more time for high-value client
+                  relationships.
+                </p>
+                <p className="kicker mt-7">Your report includes</p>
+                <ul className="mt-3 grid sm:grid-cols-2 gap-3 font-sub">
+                  {[
+                    "Capacity and workflow assessment",
+                    "Tax & accounting support opportunities",
+                    "Busy season readiness insights",
+                    "Recommended engagement approach",
+                  ].map((b, i) => (
+                    <li key={i} className="flex items-start gap-2 text-[#1C3F39]">
+                      <CheckCircle2 size={18} strokeWidth={1.5} className="text-[#A85A46] mt-0.5 shrink-0" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link to="/audit" className="btn-primary" data-testid="home-audit-cta">
+                    Get My Free Capacity Assessment <ArrowUpRight size={16} strokeWidth={1.5} />
+                  </Link>
+                  <Link to="/book" className="btn-ghost" data-testid="home-audit-book">
+                    Or book a CPA Growth Call
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -324,7 +339,7 @@ export default function Home() {
       <section className="bg-[#F2EEE5]" data-testid="about-teaser">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-28 grid md:grid-cols-12 gap-10 items-center">
           <div className="md:col-span-5">
-            <img src={aboutImg} alt="Rahul G Sataraddi" className="w-full aspect-[4/5] object-cover rounded-sm" />
+            <img src={aboutImg} alt="Tax documents and workspace" className="w-full aspect-[4/5] object-cover rounded-sm" />
           </div>
           <div className="md:col-span-6 md:col-start-7">
             <p className="kicker">Meet the founder</p>
