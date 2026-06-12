@@ -6,11 +6,11 @@ import {
 } from "lucide-react";
 
 const heroImg = "https://images.pexels.com/photos/8092466/pexels-photo-8092466.jpeg";
-const aboutImg = "https://images.pexels.com/photos/8296970/pexels-photo-8296970.jpeg";
+const aboutImg = "/rahul-portrait.jpg";
 
 const heroBadges = [
   "Trusted by US CPA Firms",
-  "3.5+ Years US Tax Experience",
+  "Nearly 4 Years Supporting US CPA Firms",
   "CPA Candidate · REG & TCP Cleared",
   "Forms 1040 · 1065 · 1120 · 1120-S · 990",
   "Tax Planning & Advisory",
@@ -35,19 +35,10 @@ const services = [
 ];
 
 const credibility = [
-  { icon: GraduationCap, label: "CPA Candidate", value: "REG & TCP Cleared" },
-  { icon: BadgeCheck,    label: "Years in US Tax", value: "3.5+ Years" },
-  { icon: Workflow,      label: "Software Stack", value: "CCH · UltraTax · ProConnect · Drake" },
-  { icon: Award,         label: "Recognition", value: "Award-Winning Tax Planning Presenter" },
-];
-
-const softwareStack = [
-  { code: "CCH",  name: "CCH Axcess",  tag: "Tax Compliance" },
-  { code: "UT",   name: "UltraTax CS", tag: "Tax Compliance" },
-  { code: "PC",   name: "ProConnect",  tag: "Tax Compliance" },
-  { code: "DRK",  name: "Drake Tax",   tag: "Tax Compliance" },
-  { code: "QB",   name: "QuickBooks",  tag: "Bookkeeping" },
-  { code: "XLS",  name: "Excel / Power Query", tag: "Modeling" },
+  { icon: GraduationCap, label: "CPA Candidate",    value: "REG & TCP Cleared" },
+  { icon: BadgeCheck,    label: "Years with US CPA Firms", value: "Nearly 4 Years" },
+  { icon: FileCheck2,    label: "Form Coverage",    value: "1040 · 1065 · 1120 · 1120-S · 990" },
+  { icon: Workflow,      label: "Approach",         value: "Technology-Adaptive · Workflow-Aligned" },
 ];
 
 const callBullets = [
@@ -81,8 +72,8 @@ export default function Home() {
               </ul>
 
               <p className="mt-8 text-lg md:text-xl max-w-xl text-[#1C3F39]/75 leading-relaxed">
-                US tax preparation, planning, accounting and advisory support — delivered by an
-                experienced tax professional embedded directly into your firm's workflow.
+                A boutique US tax & advisory partner for CPA firms — nearly 4 years of hands-on
+                experience, embedded directly into your firm's workflow.
               </p>
               <div className="flex flex-wrap items-center gap-3 mt-10">
                 <Link to="/book" className="btn-primary" data-testid="hero-cta-book">
@@ -214,25 +205,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOFTWARE STACK ----------------------------------------- */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20" data-testid="software-stack">
-        <div className="flex flex-wrap items-baseline justify-between gap-4 mb-10">
-          <div>
-            <p className="kicker">Fluent in the software your firm already runs</p>
-            <h2 className="font-serif-display text-3xl md:text-4xl text-[#1C3F39] mt-3">Software stack</h2>
+      {/* TECHNOLOGY-ADAPTIVE APPROACH -------------------------- */}
+      <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20" data-testid="tech-adaptive">
+        <div className="grid md:grid-cols-12 gap-10 items-center">
+          <div className="md:col-span-6">
+            <Layers size={32} strokeWidth={1.3} className="text-[#A85A46]" />
+            <p className="kicker mt-5">Approach</p>
+            <h2 className="font-serif-display text-3xl md:text-4xl text-[#1C3F39] mt-3 leading-tight">
+              Technology-Adaptive Approach
+            </h2>
+            <p className="mt-5 text-[#1C3F39]/80 text-lg leading-relaxed max-w-xl">
+              I work seamlessly within your firm's existing systems, processes, and quality
+              standards — no retraining your team, no rebuilding workflows.
+            </p>
           </div>
-          <p className="font-sub text-sm text-[#1C3F39]/65 max-w-md">
-            No retraining your team or rebuilding workflows — I plug into your existing stack.
-          </p>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-          {softwareStack.map((s, i) => (
-            <div key={i} className="border border-[#1C3F39]/15 bg-[#FFFFFF] aspect-[4/3] flex flex-col items-center justify-center px-4 text-center hover:border-[#A85A46] transition-colors" data-testid={`sw-${s.code.toLowerCase()}`}>
-              <div className="font-serif-display text-3xl text-[#A85A46] tracking-tight leading-none">{s.code}</div>
-              <p className="font-sub text-[13px] text-[#1C3F39] mt-2">{s.name}</p>
-              <p className="text-[10px] uppercase tracking-[0.18em] text-[#1C3F39]/55 mt-1 font-sub">{s.tag}</p>
-            </div>
-          ))}
+          <ul className="md:col-span-5 md:col-start-8 space-y-3 font-sub">
+            {[
+              "Adapt to your firm's tax software environment",
+              "Match your review checklist and workpaper format",
+              "Operate inside your secure document portal",
+              "Align with your QC and partner sign-off workflow",
+            ].map((b, i) => (
+              <li key={i} className="flex items-start gap-3 border border-[#1C3F39]/15 bg-[#FFFFFF] p-4 text-[#1C3F39]">
+                <CheckCircle2 size={18} strokeWidth={1.5} className="text-[#A85A46] mt-0.5 shrink-0" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -284,24 +283,25 @@ export default function Home() {
       <section className="bg-[#F2EEE5]" data-testid="about-teaser">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-28 grid md:grid-cols-12 gap-10 items-center">
           <div className="md:col-span-5">
-            <img src={aboutImg} alt="Tax professional working" className="w-full aspect-[4/5] object-cover rounded-sm" />
+            <img src={aboutImg} alt="Rahul G Sataraddi" className="w-full aspect-[4/5] object-cover rounded-sm" />
           </div>
           <div className="md:col-span-6 md:col-start-7">
-            <p className="kicker">About Rahul</p>
+            <p className="kicker">Meet the founder</p>
             <h2 className="font-serif-display text-4xl md:text-5xl text-[#1C3F39] mt-4 leading-tight">
-              A tax professional who thinks like a partner.
+              Built on US tax expertise. Focused on CPA firm success.
             </h2>
             <p className="mt-6 text-[#1C3F39]/75 text-lg leading-relaxed">
-              I've spent the last 3.5+ years preparing and reviewing US returns across individual,
-              partnership, corporate and non-profit entities — sitting in firms exactly like yours.
-              Now I deliver that same precision on a leverage model that fits your firm.
+              I'm <strong className="text-[#1C3F39]">Rahul G Sataraddi</strong> — a US tax
+              professional with nearly 4 years of hands-on experience partnering with US CPA firms
+              across tax compliance, planning and advisory support. I become a trusted extension of
+              your firm's team.
             </p>
             <ul className="mt-8 space-y-3 font-sub">
               {[
-                "REG & TCP cleared on the CPA track",
-                "Hands-on with CCH Axcess, UltraTax, ProConnect & Drake",
-                "Tax planning presentations recognized in industry circles",
-                "Direct partner-to-preparer communication — no offshore bureaucracy",
+                "Nearly 4 years supporting US CPA firms",
+                "CPA Candidate · REG & TCP cleared",
+                "Comprehensive US tax expertise across entity types",
+                "Tax planning & advisory experience",
               ].map((b, i) => (
                 <li key={i} className="flex items-start gap-3 text-[#1C3F39]">
                   <ShieldCheck size={18} strokeWidth={1.5} className="text-[#A85A46] mt-0.5 shrink-0" />
