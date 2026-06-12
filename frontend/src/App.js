@@ -1,56 +1,52 @@
-import { useEffect } from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-import { HOME } from "@/constants/testIds";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Toaster } from "@/components/ui/sonner";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import { AuthProvider, useAuth } from "@/lib/auth";
+import Layout from "@/components/Layout";
+import ChatWidget from "@/components/ChatWidget";
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
+import Home from "@/pages/Home";
+import About from "@/pages/About";
+import Services from "@/pages/Services";
+import Industries from "@/pages/Industries";
+import Contact from "@/pages/Contact";
+import Book from "@/pages/Book";
+import Login from "@/pages/Login";
+import Register from "@/pages/Register";
+import Portal from "@/pages/Portal";
 
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
+function Protected({ children }) {
+  const { user, loading } = useAuth();
+  const loc = useLocation();
+  if (loading) return <div className="p-20 text-center font-sub text-[#1C3F39]/60">Loading…</div>;
+  if (!user) return <Navigate to="/login" replace state={{ from: loc.pathname }} />;
+  return children;
+}
 
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          data-testid={HOME.emergentLink}
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
-
-function App() {
+export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
+        <AuthProvider>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/industries" element={<Industries />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/book" element={<Book />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/portal" element={<Protected><Portal /></Protected>} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Layout>
+          <ChatWidget />
+          <Toaster position="top-right" richColors />
+        </AuthProvider>
       </BrowserRouter>
     </div>
   );
 }
-
-export default App;
