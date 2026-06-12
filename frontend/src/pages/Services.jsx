@@ -171,20 +171,21 @@ export default function Services() {
         </p>
       </section>
 
-      {/* SERVICE PACKAGES ----------------------------------------- */}
+      {/* FLEXIBLE ENGAGEMENT MODELS ----------------------------- */}
       <section className="bg-[#F2EEE5]" data-testid="packages-section">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-24">
-          <div className="grid md:grid-cols-12 gap-10 mb-12">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-28">
+          <div className="grid md:grid-cols-12 gap-10 mb-14">
             <div className="md:col-span-6">
-              <p className="kicker">Packages</p>
+              <p className="kicker">Flexible Engagement Models</p>
               <h2 className="font-serif-display text-4xl md:text-5xl text-[#1C3F39] mt-4 leading-tight">
-                Three ways to start.
+                Solutions designed around your CPA firm's needs.
               </h2>
             </div>
             <div className="md:col-span-5 md:col-start-8 self-end">
               <p className="text-[#1C3F39]/75 text-lg">
-                Most firms begin with one package and expand from there. Pricing is engagement-based —
-                final scope confirmed on a 30-minute call.
+                Every CPA firm has unique capacity requirements and growth goals. Choose the
+                engagement approach that aligns with your firm's workflow, client base, and service
+                needs.
               </p>
             </div>
           </div>
@@ -193,37 +194,73 @@ export default function Services() {
             {[
               {
                 icon: Package,
-                name: "Seasonal Tax Support",
-                pitch: "Capacity through busy season — preparation + first-level review.",
-                bullets: ["Form 1040 preparation", "Form 1065 partnership returns", "Form 1120-S S-Corp returns", "Review support on staff-prepared returns", "Workpaper standards matched to your QC"],
-                cta: "Best for: firms hitting capacity in February–April",
+                tag: "01 · Seasonal",
+                name: "Seasonal Tax Capacity Support",
+                pitch: "Expand your firm's capacity during peak periods with reliable tax preparation and review-ready deliverables.",
+                period: "Ideal for busy season and extension periods",
+                bullets: [
+                  "Individual tax engagements (1040)",
+                  "Partnership tax engagements (1065)",
+                  "Corporate & S-Corporation engagements (1120 / 1120-S)",
+                  "Non-profit tax engagements (990)",
+                  "Workpaper preparation & documentation",
+                  "Review-ready tax files",
+                ],
+                bestFor: "CPA firms managing increased seasonal workloads.",
               },
               {
                 icon: Repeat,
-                name: "Year-Round Advisory Support",
-                pitch: "Move from compliance into the advisory work clients pay you for.",
-                bullets: ["Quarterly tax projections", "Entity structure analysis (S-Corp election, etc.)", "Strategic planning meetings with deliverables", "Partner-ready strategy decks", "Off-season notice resolution"],
-                cta: "Best for: firms expanding into advisory revenue",
+                tag: "02 · Year-Round",
+                name: "Year-Round Tax, Accounting & Advisory Support",
+                pitch: "A continuous partnership designed for ongoing growth — comprehensive tax, bookkeeping, cleanup, and advisory.",
+                period: "Most popular · ongoing partnership",
+                bullets: [
+                  "Tax compliance support",
+                  "Bookkeeping & reconciliations",
+                  "Historical cleanup projects",
+                  "Tax notices & special projects",
+                  "Tax projections & planning",
+                  "Research and advisory documentation",
+                ],
+                bestFor: "CPA firms seeking a reliable long-term tax and accounting partner.",
                 featured: true,
               },
               {
                 icon: UserPlus,
-                name: "Offshore Team Buildout",
-                pitch: "Stand up your own offshore tax team — properly.",
-                bullets: ["Sourcing & screening US-tax-trained staff", "SOP and workflow documentation", "QC framework setup", "60-day supervised onboarding", "Ongoing oversight option available"],
-                cta: "Best for: firms ready to scale staff offshore",
+                tag: "03 · Dedicated Team",
+                name: "CPA Firm Outsourcing & Dedicated Offshore Staffing",
+                pitch: "Create a dedicated tax and accounting team aligned with your firm's processes, quality expectations, and growth objectives.",
+                period: "Build a scalable extension of your firm",
+                bullets: [
+                  "Dedicated tax & accounting professionals",
+                  "Customized workflows and documentation",
+                  "Quality control processes",
+                  "Ongoing communication and collaboration",
+                  "Scalable team structure based on your needs",
+                ],
+                bestFor: "CPA firms planning long-term capacity expansion.",
               },
             ].map((p, i) => (
               <div
                 key={i}
-                className={`p-8 border ${p.featured ? "bg-[#1C3F39] text-[#F9F6F0] border-[#1C3F39]" : "bg-[#FFFFFF] border-[#1C3F39]/15"}`}
+                className={`p-8 border flex flex-col ${p.featured ? "bg-[#1C3F39] text-[#F9F6F0] border-[#1C3F39]" : "bg-[#FFFFFF] border-[#1C3F39]/15"}`}
                 data-testid={`package-${i}`}
               >
-                <p.icon size={32} strokeWidth={1.3} className={p.featured ? "text-[#E2B8A9]" : "text-[#A85A46]"} />
-                {p.featured && <p className="kicker text-[#E2B8A9] mt-5">Most popular</p>}
-                <h3 className={`font-serif-display text-3xl mt-${p.featured ? "3" : "6"} leading-tight ${p.featured ? "text-[#F9F6F0]" : "text-[#1C3F39]"}`}>{p.name}</h3>
-                <p className={`mt-3 leading-relaxed ${p.featured ? "text-[#F9F6F0]/85" : "text-[#1C3F39]/75"}`}>{p.pitch}</p>
-                <ul className="mt-6 space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <p.icon size={30} strokeWidth={1.3} className={p.featured ? "text-[#E2B8A9]" : "text-[#A85A46]"} />
+                  {p.featured && (
+                    <span className="text-[10px] uppercase tracking-[0.22em] font-sub text-[#1C3F39] bg-[#E2B8A9] px-2 py-1">
+                      Most popular
+                    </span>
+                  )}
+                </div>
+                <p className={`mt-5 text-[10px] uppercase tracking-[0.22em] font-sub ${p.featured ? "text-[#E2B8A9]" : "text-[#A85A46]"}`}>{p.tag}</p>
+                <h3 className={`font-serif-display text-2xl md:text-3xl mt-3 leading-tight ${p.featured ? "text-[#F9F6F0]" : "text-[#1C3F39]"}`}>{p.name}</h3>
+                <p className={`mt-2 text-[12.5px] uppercase tracking-[0.18em] font-sub ${p.featured ? "text-[#E2B8A9]" : "text-[#1C3F39]/60"}`}>{p.period}</p>
+                <p className={`mt-4 leading-relaxed ${p.featured ? "text-[#F9F6F0]/85" : "text-[#1C3F39]/75"}`}>{p.pitch}</p>
+
+                <p className={`kicker mt-6 ${p.featured ? "text-[#E2B8A9]" : ""}`}>Includes</p>
+                <ul className="mt-3 space-y-2.5 flex-1">
                   {p.bullets.map((b, j) => (
                     <li key={j} className={`flex items-start gap-2 text-[14.5px] ${p.featured ? "text-[#F9F6F0]/90" : "text-[#1C3F39]/85"}`}>
                       <CheckCircle2 size={16} strokeWidth={1.6} className={p.featured ? "text-[#E2B8A9] mt-0.5 shrink-0" : "text-[#A85A46] mt-0.5 shrink-0"} />
@@ -231,12 +268,34 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <p className={`mt-6 text-[11px] uppercase tracking-[0.2em] font-sub ${p.featured ? "text-[#E2B8A9]" : "text-[#A85A46]"}`}>{p.cta}</p>
-                <Link to="/book" className={`mt-6 inline-flex items-center gap-2 ${p.featured ? "btn-terra" : "btn-ghost"}`} data-testid={`package-cta-${i}`}>
-                  Scope this engagement <ArrowUpRight size={16} strokeWidth={1.5} />
+
+                <div className={`mt-6 pt-5 border-t ${p.featured ? "border-[#F9F6F0]/20" : "border-[#1C3F39]/10"}`}>
+                  <p className={`kicker ${p.featured ? "text-[#E2B8A9]" : ""}`}>Best for</p>
+                  <p className={`mt-2 text-[14.5px] ${p.featured ? "text-[#F9F6F0]/90" : "text-[#1C3F39]/80"}`}>{p.bestFor}</p>
+                </div>
+
+                <Link to="/book" className={`mt-6 inline-flex items-center justify-center gap-2 ${p.featured ? "btn-terra" : "btn-ghost"}`} data-testid={`package-cta-${i}`}>
+                  Discuss your firm's needs <ArrowUpRight size={16} strokeWidth={1.5} />
                 </Link>
               </div>
             ))}
+          </div>
+
+          {/* Pricing statement */}
+          <div className="mt-14 border-t border-[#1C3F39]/15 pt-10 grid md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-8">
+              <p className="kicker">Pricing approach</p>
+              <p className="font-serif-display text-2xl md:text-3xl text-[#1C3F39] mt-3 leading-snug">
+                Flexible engagement models with transparent, scope-based pricing. Every engagement
+                is customized based on your firm's requirements, complexity, and desired level of
+                support.
+              </p>
+            </div>
+            <div className="md:col-span-3 md:col-start-10">
+              <Link to="/audit" className="btn-primary w-full justify-center" data-testid="packages-audit-cta">
+                Request a customized plan <ArrowUpRight size={16} strokeWidth={1.5} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {
   ArrowUpRight, FileCheck2, Calculator, BookOpen, Users, AlertCircle, Layers,
-  Workflow, BadgeCheck, Award, GraduationCap, ShieldCheck,
+  Workflow, BadgeCheck, Award, GraduationCap, ShieldCheck, Lightbulb,
   CheckCircle2, PhoneCall, Briefcase, Star, Download,
 } from "lucide-react";
 
@@ -17,12 +17,36 @@ const heroBadges = [
 ];
 
 const whyReasons = [
-  { title: "Direct access to the preparer",          desc: "No layered account managers — you talk to the person doing the work." },
-  { title: "Tax planning capability, not just prep", desc: "Projections, entity analysis and partner-ready strategy decks." },
-  { title: "Workpaper-ready deliverables",           desc: "Documentation matched to your firm's QC checklist and review standards." },
-  { title: "Flexible engagement structure",          desc: "Flat fee, hourly, seasonal block or year-round — scoped to your firm." },
-  { title: "Peak season and year-round support",     desc: "Show up before January 1; stay useful through extensions and after." },
-  { title: "No layers of offshore management",       desc: "A single accountable point of contact — partner-style, not vendor-style." },
+  {
+    icon: Users,
+    title: "Dedicated Professional Collaboration",
+    desc: "Work directly with a dedicated tax professional who understands your engagement, priorities, and expectations — ensuring clear communication and accountability.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Tax Planning & Advisory Perspective",
+    desc: "Beyond compliance, gain support with projections, scenario analysis, entity considerations, and advisory-ready insights that create additional value for your clients.",
+  },
+  {
+    icon: FileCheck2,
+    title: "Review-Ready Deliverables",
+    desc: "Organized, accurate, and quality-focused work aligned with your firm's workflows, documentation standards, and review expectations.",
+  },
+  {
+    icon: Layers,
+    title: "Flexible Engagement Models & Transparent Pricing",
+    desc: "Choose an engagement approach that fits your firm — seasonal, year-round, project-based, or dedicated outsourcing & offshore staffing. Pricing stays transparent and predictable.",
+  },
+  {
+    icon: BookOpen,
+    title: "Year-Round Tax, Accounting & Cleanup Support",
+    desc: "Reliable collaboration beyond busy season — tax compliance, bookkeeping, reconciliations, historical cleanup, extensions, notices, and special engagements.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Personalized Partnership Approach",
+    desc: "A long-term relationship built on responsiveness, confidentiality, professionalism, and a commitment to supporting your firm's continued success.",
+  },
 ];
 
 const services = [
@@ -105,24 +129,39 @@ export default function Home() {
             <div className="md:col-span-5">
               <p className="kicker">Why CPA Firms Partner With Rahul</p>
               <h2 className="font-serif-display text-4xl md:text-5xl text-[#1C3F39] mt-4 leading-tight">
-                Built for firm owners — not vendor relationships.
+                Built Around Long-Term CPA Firm Partnerships.
               </h2>
             </div>
             <div className="md:col-span-6 md:col-start-7 self-end">
               <p className="text-[#1C3F39]/75 text-lg">
-                Six things partners notice within the first engagement — and the reason they keep
-                expanding scope after the first season.
+                Dedicated expertise, reliable communication, flexible engagement models, and
+                quality-focused work designed to align with your firm's standards and growth
+                objectives.
               </p>
             </div>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {whyReasons.map((r, i) => (
               <div key={i} className="bg-[#FFFFFF] border border-[#1C3F39]/12 p-7" data-testid={`why-card-${i}`}>
-                <CheckCircle2 size={24} strokeWidth={1.4} className="text-[#A85A46]" />
+                <r.icon size={26} strokeWidth={1.3} className="text-[#A85A46]" />
                 <h3 className="font-serif-display text-xl text-[#1C3F39] mt-5 leading-snug">{r.title}</h3>
-                <p className="mt-3 text-[#1C3F39]/70 text-[15px] leading-relaxed">{r.desc}</p>
+                <p className="mt-3 text-[#1C3F39]/72 text-[15px] leading-relaxed">{r.desc}</p>
               </div>
             ))}
+          </div>
+
+          {/* Closing statement */}
+          <div className="mt-14 border-t border-[#1C3F39]/15 pt-10 grid md:grid-cols-12 gap-8 items-center">
+            <p className="md:col-span-9 font-serif-display text-2xl md:text-3xl text-[#1C3F39] leading-snug" data-testid="why-closing">
+              Nearly 4 years supporting US CPA firms with tax, accounting, bookkeeping, cleanup,
+              and advisory work — delivering the flexibility, expertise, and reliability needed
+              to help firms grow with confidence.
+            </p>
+            <div className="md:col-span-3">
+              <Link to="/services" className="btn-primary w-full justify-center" data-testid="why-cta">
+                Explore engagement models <ArrowUpRight size={16} strokeWidth={1.5} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
