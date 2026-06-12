@@ -72,10 +72,23 @@ export default function Book() {
   return (
     <div data-testid="page-book">
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 pt-16 md:pt-24 pb-12">
-        <p className="kicker">Book a consultation</p>
+        <p className="kicker">Book a Free 30-Minute CPA Growth Call</p>
         <h1 className="font-serif-display text-5xl md:text-7xl text-[#1C3F39] mt-4 leading-[0.95] max-w-3xl">
           30 minutes. No pitch. One useful idea — guaranteed.
         </h1>
+        <ul className="mt-8 grid sm:grid-cols-2 gap-3 max-w-2xl font-sub" data-testid="book-discuss">
+          {[
+            "Tax season bottlenecks & capacity",
+            "Offshore staffing options",
+            "Tax planning & advisory support",
+            "Workflow / QC review",
+          ].map((b, i) => (
+            <li key={i} className="flex items-start gap-2 text-[#1C3F39]">
+              <span className="mt-1 inline-block w-1.5 h-1.5 rounded-full bg-[#A85A46]" />
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <form onSubmit={submit} className="max-w-[1400px] mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-10 pb-24" data-testid="booking-form">

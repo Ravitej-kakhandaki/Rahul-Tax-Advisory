@@ -16,7 +16,7 @@ export default function Industries() {
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 pt-16 md:pt-24 pb-16">
         <p className="kicker">Industries Served</p>
         <h1 className="font-serif-display text-5xl md:text-7xl text-[#1C3F39] mt-4 leading-[0.95] max-w-4xl">
-          Practical experience across the sectors that pay the most attention to taxes.
+          Industries We Serve Through Our CPA Firm Partners
         </h1>
         <p className="mt-8 text-xl text-[#1C3F39]/75 max-w-2xl">
           Most engagements start with a US CPA firm — and through those firms, we serve clients
@@ -42,7 +42,7 @@ export default function Industries() {
             </h2>
           </div>
           <div className="md:col-span-3 md:col-start-10">
-            <Link to="/book" className="btn-terra" data-testid="industries-cta">Book a consultation <ArrowUpRight size={16} strokeWidth={1.5} /></Link>
+            <Link to="/book" className="btn-terra" data-testid="industries-cta">Book a CPA Growth Call <ArrowUpRight size={16} strokeWidth={1.5} /></Link>
           </div>
         </div>
       </section>

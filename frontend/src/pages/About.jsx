@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Award, GraduationCap, Workflow, Globe2, ArrowUpRight, FileCheck2 } from "lucide-react";
+import { Award, GraduationCap, Workflow, Globe2, ArrowUpRight, FileCheck2, Clock, Users, TrendingUp, ShieldCheck, Building2 } from "lucide-react";
 
 const aboutImg = "https://images.pexels.com/photos/8296970/pexels-photo-8296970.jpeg";
 
@@ -79,7 +79,7 @@ export default function About() {
             </h2>
           </div>
           <div className="md:col-span-3 md:col-start-10">
-            <Link to="/book" className="btn-terra" data-testid="about-book">Book a call <ArrowUpRight size={16} strokeWidth={1.5} /></Link>
+            <Link to="/book" className="btn-terra" data-testid="about-book">Book a CPA Growth Call <ArrowUpRight size={16} strokeWidth={1.5} /></Link>
           </div>
         </div>
       </section>

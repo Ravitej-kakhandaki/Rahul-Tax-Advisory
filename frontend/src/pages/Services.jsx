@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FileCheck2, Calculator, BookOpen, Users, AlertCircle, Layers, ArrowUpRight, Briefcase, CheckCircle2 } from "lucide-react";
+import { FileCheck2, Calculator, BookOpen, Users, AlertCircle, Layers, ArrowUpRight, Briefcase, CheckCircle2, Package, Repeat, UserPlus } from "lucide-react";
 
 const outsourcingImg = "https://images.unsplash.com/photo-1583521214690-73421a1829a9";
 
@@ -94,6 +94,76 @@ export default function Services() {
           Engage me for a single return, a tax season, or year-round capacity. Every engagement is
           scoped per firm — pricing follows scope, not seat counts.
         </p>
+      </section>
+
+      {/* SERVICE PACKAGES ----------------------------------------- */}
+      <section className="bg-[#F2EEE5]" data-testid="packages-section">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-24">
+          <div className="grid md:grid-cols-12 gap-10 mb-12">
+            <div className="md:col-span-6">
+              <p className="kicker">Packages</p>
+              <h2 className="font-serif-display text-4xl md:text-5xl text-[#1C3F39] mt-4 leading-tight">
+                Three ways to start.
+              </h2>
+            </div>
+            <div className="md:col-span-5 md:col-start-8 self-end">
+              <p className="text-[#1C3F39]/75 text-lg">
+                Most firms begin with one package and expand from there. Pricing is engagement-based —
+                final scope confirmed on a 30-minute call.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Package,
+                name: "Seasonal Tax Support",
+                pitch: "Capacity through busy season — preparation + first-level review.",
+                bullets: ["Form 1040 preparation", "Form 1065 partnership returns", "Form 1120-S S-Corp returns", "Review support on staff-prepared returns", "Workpaper standards matched to your QC"],
+                cta: "Best for: firms hitting capacity in February–April",
+              },
+              {
+                icon: Repeat,
+                name: "Year-Round Advisory Support",
+                pitch: "Move from compliance into the advisory work clients pay you for.",
+                bullets: ["Quarterly tax projections", "Entity structure analysis (S-Corp election, etc.)", "Strategic planning meetings with deliverables", "Partner-ready strategy decks", "Off-season notice resolution"],
+                cta: "Best for: firms expanding into advisory revenue",
+                featured: true,
+              },
+              {
+                icon: UserPlus,
+                name: "Offshore Team Buildout",
+                pitch: "Stand up your own offshore tax team — properly.",
+                bullets: ["Sourcing & screening US-tax-trained staff", "SOP and workflow documentation", "QC framework setup", "60-day supervised onboarding", "Ongoing oversight option available"],
+                cta: "Best for: firms ready to scale staff offshore",
+              },
+            ].map((p, i) => (
+              <div
+                key={i}
+                className={`p-8 border ${p.featured ? "bg-[#1C3F39] text-[#F9F6F0] border-[#1C3F39]" : "bg-[#FFFFFF] border-[#1C3F39]/15"}`}
+                data-testid={`package-${i}`}
+              >
+                <p.icon size={32} strokeWidth={1.3} className={p.featured ? "text-[#E2B8A9]" : "text-[#A85A46]"} />
+                {p.featured && <p className="kicker text-[#E2B8A9] mt-5">Most popular</p>}
+                <h3 className={`font-serif-display text-3xl mt-${p.featured ? "3" : "6"} leading-tight ${p.featured ? "text-[#F9F6F0]" : "text-[#1C3F39]"}`}>{p.name}</h3>
+                <p className={`mt-3 leading-relaxed ${p.featured ? "text-[#F9F6F0]/85" : "text-[#1C3F39]/75"}`}>{p.pitch}</p>
+                <ul className="mt-6 space-y-2.5">
+                  {p.bullets.map((b, j) => (
+                    <li key={j} className={`flex items-start gap-2 text-[14.5px] ${p.featured ? "text-[#F9F6F0]/90" : "text-[#1C3F39]/85"}`}>
+                      <CheckCircle2 size={16} strokeWidth={1.6} className={p.featured ? "text-[#E2B8A9] mt-0.5 shrink-0" : "text-[#A85A46] mt-0.5 shrink-0"} />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className={`mt-6 text-[11px] uppercase tracking-[0.2em] font-sub ${p.featured ? "text-[#E2B8A9]" : "text-[#A85A46]"}`}>{p.cta}</p>
+                <Link to="/book" className={`mt-6 inline-flex items-center gap-2 ${p.featured ? "btn-terra" : "btn-ghost"}`} data-testid={`package-cta-${i}`}>
+                  Scope this engagement <ArrowUpRight size={16} strokeWidth={1.5} />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 pb-8 grid md:grid-cols-6 gap-3" data-testid="services-anchors">

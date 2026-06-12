@@ -7,6 +7,7 @@ const navItems = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
+  { to: "/results", label: "Results" },
   { to: "/industries", label: "Industries" },
   { to: "/contact", label: "Contact" },
 ];
@@ -58,7 +59,7 @@ export function Header() {
             <>
               <Link to="/login" className="text-sm font-sub text-[#1C3F39] hover:text-[#A85A46]" data-testid="nav-login">Sign in</Link>
               <Link to="/book" className="btn-primary text-sm" data-testid="nav-book">
-                Book Consultation <ArrowUpRight size={16} strokeWidth={1.5} />
+                Book CPA Growth Call <ArrowUpRight size={16} strokeWidth={1.5} />
               </Link>
             </>
           )}
@@ -85,7 +86,7 @@ export function Header() {
             ) : (
               <>
                 <Link to="/login" onClick={() => setOpen(false)} className="text-[#1C3F39]" data-testid="mnav-login">Sign in</Link>
-                <Link to="/book" onClick={() => setOpen(false)} className="btn-primary justify-center" data-testid="mnav-book">Book Consultation</Link>
+                <Link to="/book" onClick={() => setOpen(false)} className="btn-primary justify-center" data-testid="mnav-book">Book a CPA Growth Call</Link>
               </>
             )}
           </div>
@@ -106,7 +107,7 @@ export function Footer() {
               Let's scale your tax practice — without scaling the overhead.
             </h3>
             <Link to="/book" className="btn-terra mt-8" data-testid="footer-book">
-              Book a free 30-min call <ArrowUpRight size={16} strokeWidth={1.5} />
+              Book a free 30-min CPA Growth Call <ArrowUpRight size={16} strokeWidth={1.5} />
             </Link>
           </div>
           <div className="md:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8 font-sub text-sm">
@@ -124,6 +125,7 @@ export function Footer() {
               <p className="text-[#E2B8A9] uppercase text-[11px] tracking-[0.22em] mb-4">Firm</p>
               <ul className="space-y-2 text-[#F9F6F0]/85">
                 <li><Link to="/about">About Rahul</Link></li>
+                <li><Link to="/results">Results</Link></li>
                 <li><Link to="/industries">Industries</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
                 <li><Link to="/login">Client Portal</Link></li>
