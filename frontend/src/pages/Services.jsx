@@ -166,6 +166,31 @@ export default function Services() {
         </div>
       </section>
 
+      {/* RISK REVERSAL -------------------------------------------- */}
+      <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20" data-testid="services-risk-reversal">
+        <div className="grid md:grid-cols-12 gap-10 items-center border-y border-[#1C3F39]/15 py-12">
+          <div className="md:col-span-6">
+            <p className="kicker">Risk reversal</p>
+            <h2 className="font-serif-display text-3xl md:text-4xl text-[#1C3F39] mt-3 leading-tight">
+              Start small. Validate quality. Scale with confidence.
+            </h2>
+          </div>
+          <ul className="md:col-span-5 md:col-start-8 grid sm:grid-cols-2 gap-3 font-sub">
+            {[
+              "10-hour pilot engagement",
+              "No long-term commitment",
+              "Review the work before scaling",
+              "Confidential · NDA standard",
+            ].map((b, i) => (
+              <li key={i} className="flex items-start gap-2 text-[#1C3F39]">
+                <CheckCircle2 size={18} strokeWidth={1.5} className="text-[#A85A46] mt-0.5 shrink-0" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 pb-8 grid md:grid-cols-6 gap-3" data-testid="services-anchors">
         {detailedServices.map((s) => (
           <a key={s.anchor} href={`#${s.anchor}`} className="border border-[#1C3F39]/15 px-4 py-3 text-sm font-sub text-[#1C3F39] hover:bg-[#1C3F39] hover:text-[#F9F6F0] transition-colors">

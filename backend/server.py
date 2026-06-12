@@ -127,6 +127,22 @@ class BookingIn(BaseModel):
     notes: Optional[str] = None
 
 
+class AuditIn(BaseModel):
+    name: str
+    firm: str
+    email: EmailStr
+    phone: Optional[str] = None
+    professionals: Optional[str] = None
+    return_volume: Optional[str] = None
+    vol_1040: Optional[str] = None
+    vol_1065: Optional[str] = None
+    vol_1120: Optional[str] = None
+    bookkeeping_clients: Optional[str] = None
+    advisory_clients: Optional[str] = None
+    biggest_challenge: Optional[str] = None
+    notes: Optional[str] = None
+
+
 class DocumentIn(BaseModel):
     name: str
     category: Optional[str] = "general"
@@ -149,6 +165,7 @@ async def on_startup() -> None:
     await db.leads.create_index("created_at")
     await db.bookings.create_index("created_at")
     await db.documents.create_index("user_id")
+    await db.audits.create_index("created_at")
     await db.chat_messages.create_index("session_id")
 
     admin_email = os.environ.get("ADMIN_EMAIL")
@@ -261,6 +278,25 @@ async def create_booking(payload: BookingIn):
 @api.get("/bookings")
 async def list_bookings(_: dict = Depends(require_admin)):
     items = await db.bookings.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
+    return items
+
+
+# ----------------------- Routes: capacity audit -----------------------
+@api.post("/audits")
+async def create_audit(payload: AuditIn):
+    doc = payload.model_dump()
+    doc["id"] = str(uuid.uuid4())
+    doc["created_at"] = datetime.now(timezone.utc).isoformat()
+    doc["status"] = "new"
+    await db.audits.insert_one(doc)
+    doc.pop("_id", None)
+    log.info("New audit request: %s — %s", doc.get("firm"), doc["email"])
+    return {"ok": True, "id": doc["id"]}
+
+
+@api.get("/audits")
+async def list_audits(_: dict = Depends(require_admin)):
+    items = await db.audits.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
     return items
 
 

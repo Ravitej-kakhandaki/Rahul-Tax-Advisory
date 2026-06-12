@@ -11,6 +11,7 @@ import About from "@/pages/About";
 import Services from "@/pages/Services";
 import Industries from "@/pages/Industries";
 import Results from "@/pages/Results";
+import Audit from "@/pages/Audit";
 import Contact from "@/pages/Contact";
 import Book from "@/pages/Book";
 import Login from "@/pages/Login";
@@ -37,6 +38,7 @@ export default function App() {
               <Route path="/services" element={<Services />} />
               <Route path="/industries" element={<Industries />} />
               <Route path="/results" element={<Results />} />
+              <Route path="/audit" element={<Audit />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/book" element={<Book />} />
               <Route path="/login" element={<Login />} />

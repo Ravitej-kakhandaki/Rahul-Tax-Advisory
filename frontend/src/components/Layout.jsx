@@ -8,6 +8,7 @@ const navItems = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/results", label: "Results" },
+  { to: "/audit", label: "Free Audit" },
   { to: "/industries", label: "Industries" },
   { to: "/contact", label: "Contact" },
 ];
@@ -126,6 +127,7 @@ export function Footer() {
               <ul className="space-y-2 text-[#F9F6F0]/85">
                 <li><Link to="/about">About Rahul</Link></li>
                 <li><Link to="/results">Results</Link></li>
+                <li><Link to="/audit">Free Capacity Audit</Link></li>
                 <li><Link to="/industries">Industries</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
                 <li><Link to="/login">Client Portal</Link></li>

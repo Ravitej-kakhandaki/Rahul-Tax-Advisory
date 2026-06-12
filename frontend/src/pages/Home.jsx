@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import {
   ArrowUpRight, FileCheck2, Calculator, BookOpen, Users, AlertCircle, Layers,
   Workflow, BadgeCheck, Award, GraduationCap, ShieldCheck,
-  CheckCircle2, PhoneCall, Briefcase, Star,
+  CheckCircle2, PhoneCall, Briefcase, Star, Download,
 } from "lucide-react";
 
 const heroImg = "https://images.pexels.com/photos/8092466/pexels-photo-8092466.jpeg";
@@ -132,6 +132,84 @@ export default function Home() {
                 <p className="mt-3 text-[#1C3F39]/70 text-[15px] leading-relaxed">{r.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FREE CPA CAPACITY AUDIT --------------------------------- */}
+      <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-24" data-testid="home-audit-promo">
+        <div className="grid md:grid-cols-12 gap-10 items-center">
+          <div className="md:col-span-7">
+            <p className="kicker">Free CPA Capacity Audit</p>
+            <h2 className="font-serif-display text-4xl md:text-5xl text-[#1C3F39] mt-4 leading-tight">
+              Not sure what to outsource? Find out — for free.
+            </h2>
+            <p className="mt-5 text-[#1C3F39]/75 text-lg max-w-2xl">
+              Get a personalized CPA Capacity Report showing where your firm can create additional
+              capacity without compromising quality — delivered within two business days.
+            </p>
+            <ul className="mt-6 grid sm:grid-cols-2 gap-3 font-sub">
+              {[
+                "Estimated hours saved",
+                "Recommended support package",
+                "Workflow suggestions",
+                "Busy season strategy",
+              ].map((b, i) => (
+                <li key={i} className="flex items-start gap-2 text-[#1C3F39]">
+                  <CheckCircle2 size={18} strokeWidth={1.5} className="text-[#A85A46] mt-0.5 shrink-0" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/audit" className="btn-primary" data-testid="home-audit-cta">
+                Get my Free Capacity Audit <ArrowUpRight size={16} strokeWidth={1.5} />
+              </Link>
+              <a
+                href="/cpa-offshore-readiness-checklist.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost"
+                data-testid="home-checklist-cta"
+              >
+                <Download size={16} strokeWidth={1.5} /> Download Readiness Checklist
+              </a>
+            </div>
+          </div>
+          <div className="md:col-span-5 md:col-start-8">
+            <div className="border border-[#1C3F39]/15 bg-[#FFFFFF] p-8">
+              <div className="flex items-baseline justify-between">
+                <p className="kicker">Free guide · PDF</p>
+                <span className="text-[10px] uppercase tracking-[0.18em] font-sub text-[#1C3F39]/55">6 sections</span>
+              </div>
+              <h3 className="font-serif-display text-2xl md:text-3xl text-[#1C3F39] mt-3 leading-snug">
+                The CPA Firm Offshore Readiness Checklist
+              </h3>
+              <ul className="mt-5 space-y-2.5 text-[14.5px] text-[#1C3F39]/80 font-sub">
+                {[
+                  "Is your firm ready for offshore support?",
+                  "12 tasks ideal for outsourcing first",
+                  "Security & confidentiality checklist",
+                  "Workflow preparation checklist",
+                  "Busy season planning guide",
+                  "How to evaluate an offshore partner",
+                ].map((b, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="mt-1.5 inline-block w-1.5 h-1.5 rounded-full bg-[#A85A46]" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="/cpa-offshore-readiness-checklist.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-terra mt-6 w-full justify-center"
+                data-testid="home-checklist-download"
+              >
+                Download free guide <Download size={16} strokeWidth={1.5} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
