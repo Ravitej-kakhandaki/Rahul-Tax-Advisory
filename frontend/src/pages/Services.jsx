@@ -1,5 +1,80 @@
 import { Link } from "react-router-dom";
-import { FileCheck2, Calculator, BookOpen, Users, AlertCircle, Layers, ArrowUpRight, Briefcase, CheckCircle2, Package, Repeat, UserPlus } from "lucide-react";
+import {
+  FileCheck2, Calculator, BookOpen, Users, AlertCircle, Layers, ArrowUpRight, Briefcase,
+  CheckCircle2, Package, Repeat, UserPlus, FileSpreadsheet, Lightbulb, Calendar,
+  ShieldCheck, MessageSquare, Workflow, Sparkles, Lock,
+} from "lucide-react";
+
+const outsourcingAreas = [
+  {
+    icon: FileCheck2,
+    title: "US Tax Compliance Support",
+    blurb: "Accurate, organized, and review-ready work across a wide range of tax engagements.",
+    items: [
+      "Individual Tax Engagements (1040)",
+      "Partnership Tax Engagements (1065)",
+      "Corporate Tax Engagements (1120)",
+      "S-Corporation Tax Engagements (1120-S)",
+      "Non-Profit Tax Engagements (990)",
+      "Extension & Amended Return Support",
+      "Tax Notice Analysis & Response Preparation",
+      "Workpaper Preparation & Documentation",
+    ],
+  },
+  {
+    icon: BookOpen,
+    title: "Bookkeeping, Accounting & Cleanup",
+    blurb: "Maintain organized financial records and tax-ready books throughout the year.",
+    items: [
+      "Monthly & Periodic Bookkeeping",
+      "Bank & Credit Card Reconciliations",
+      "General Ledger Review & Cleanup",
+      "Historical Bookkeeping Cleanup Projects",
+      "Catch-up Accounting & Backlog Management",
+      "Financial Statement Preparation",
+      "Account Classification & Adjustments",
+      "Tax-Ready Financial Records Preparation",
+    ],
+  },
+  {
+    icon: Lightbulb,
+    title: "Tax Planning & Advisory",
+    blurb: "Helping CPA firms deliver greater strategic value to their clients.",
+    items: [
+      "Tax Projections & Estimated Tax Planning",
+      "Scenario & Impact Analysis",
+      "Entity Structure Planning",
+      "Tax Research & Technical Analysis",
+      "Advisory-Ready Reports & Documentation",
+      "Year-End Tax Planning",
+    ],
+  },
+  {
+    icon: Calendar,
+    title: "Year-Round CPA Firm Capacity",
+    blurb: "Reliable professional support during busy seasons and throughout the year.",
+    items: [
+      "Busy Season Capacity",
+      "Extension Season Assistance",
+      "Special Tax Projects",
+      "Notice Response & Resolution",
+      "Accounting Cleanup Projects",
+      "Client File Organization",
+      "Workpaper Standardization",
+      "Ongoing Capacity Engagements",
+    ],
+  },
+];
+
+const partnershipBenefits = [
+  { icon: Briefcase,     text: "Nearly 4 years of experience supporting US CPA firms" },
+  { icon: MessageSquare, text: "Dedicated and personalized communication" },
+  { icon: Layers,        text: "Flexible staffing models tailored to your firm" },
+  { icon: Repeat,        text: "Scalable capacity during peak and year-round periods" },
+  { icon: ShieldCheck,   text: "High-quality, review-ready deliverables" },
+  { icon: Lock,          text: "Strong commitment to confidentiality and professional standards" },
+  { icon: Workflow,      text: "Seamless alignment with your firm's workflows and expectations" },
+];
 
 const outsourcingImg = "https://images.unsplash.com/photo-1583521214690-73421a1829a9";
 
@@ -162,6 +237,102 @@ export default function Services() {
                 </Link>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CPA FIRM OUTSOURCING & OFFSHORE STAFFING ----------------- */}
+      <section className="bg-[#F2EEE5]" data-testid="outsourcing-section">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-28">
+          <div className="grid md:grid-cols-12 gap-10 mb-14">
+            <div className="md:col-span-7">
+              <p className="kicker">CPA Firm Outsourcing & Offshore Staffing</p>
+              <h2 className="font-serif-display text-4xl md:text-5xl text-[#1C3F39] mt-4 leading-tight">
+                Dedicated tax, accounting &amp; advisory capacity designed around your CPA firm.
+              </h2>
+            </div>
+            <div className="md:col-span-5 md:col-start-8 self-end">
+              <p className="text-[#1C3F39]/80 text-lg">
+                Expand your firm's capacity with experienced and reliable professional support
+                aligned with your workflows, quality standards, and client expectations. A flexible
+                engagement approach helping CPA firms maintain exceptional service, improve
+                efficiency, and create more opportunities for strategic growth.
+              </p>
+            </div>
+          </div>
+
+          {/* Four support areas */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {outsourcingAreas.map((a, i) => (
+              <div key={i} className="bg-[#FFFFFF] border border-[#1C3F39]/12 p-8 md:p-10" data-testid={`outsourcing-area-${i}`}>
+                <a.icon size={28} strokeWidth={1.3} className="text-[#A85A46]" />
+                <h3 className="font-serif-display text-2xl md:text-3xl text-[#1C3F39] mt-5 leading-snug">{a.title}</h3>
+                <p className="mt-3 text-[#1C3F39]/75 leading-relaxed">{a.blurb}</p>
+                <ul className="mt-6 space-y-2.5">
+                  {a.items.map((it, j) => (
+                    <li key={j} className="flex items-start gap-2.5 text-[14.5px] text-[#1C3F39]/85">
+                      <CheckCircle2 size={16} strokeWidth={1.6} className="text-[#A85A46] mt-0.5 shrink-0" />
+                      <span>{it}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Flexible engagement models band */}
+          <div className="mt-16 grid md:grid-cols-12 gap-10 items-center border-t border-[#1C3F39]/15 pt-12">
+            <div className="md:col-span-6">
+              <p className="kicker">Engagement Models</p>
+              <h3 className="font-serif-display text-3xl md:text-4xl text-[#1C3F39] mt-3 leading-tight">
+                Flexible engagement models &amp; value-driven scoping.
+              </h3>
+            </div>
+            <p className="md:col-span-5 md:col-start-8 text-[#1C3F39]/80 text-lg">
+              Every CPA firm has unique capacity requirements and growth objectives. Engagement
+              models are designed to provide flexible professional support with transparent scoping,
+              operational efficiency, and long-term value.
+            </p>
+          </div>
+
+          {/* Benefits */}
+          <div className="mt-16">
+            <p className="kicker">Benefits of Partnering with Rahul Tax Advisory</p>
+            <h3 className="font-serif-display text-3xl md:text-4xl text-[#1C3F39] mt-3 mb-8 leading-tight max-w-2xl">
+              A boutique partner built around long-term CPA firm relationships.
+            </h3>
+            <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 font-sub">
+              {partnershipBenefits.map((b, i) => (
+                <li key={i} className="flex items-start gap-3 bg-[#FFFFFF] border border-[#1C3F39]/12 p-5" data-testid={`outsourcing-benefit-${i}`}>
+                  <b.icon size={20} strokeWidth={1.4} className="text-[#A85A46] mt-0.5 shrink-0" />
+                  <span className="text-[#1C3F39] text-[15px] leading-snug">{b.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Closing statement */}
+          <div className="mt-20 bg-[#1C3F39] text-[#F9F6F0] p-10 md:p-16 grid md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-8">
+              <p className="kicker text-[#E2B8A9]">Your Firm's Growth · Our Professional Commitment</p>
+              <h3 className="font-serif-display text-3xl md:text-5xl mt-4 leading-tight">
+                Your firm's growth. My professional commitment.
+              </h3>
+              <p className="mt-5 text-[#F9F6F0]/85 text-lg max-w-2xl">
+                Whether you need additional capacity during busy season, year-round tax and
+                accounting collaboration, or assistance with advisory initiatives, Rahul Tax
+                Advisory provides a dependable partnership designed to help your CPA firm grow
+                with confidence.
+              </p>
+            </div>
+            <div className="md:col-span-3 md:col-start-10 flex flex-col gap-3">
+              <Link to="/book" className="btn-terra justify-center" data-testid="outsourcing-cta-book">
+                Schedule a CPA Growth Conversation <ArrowUpRight size={16} strokeWidth={1.5} />
+              </Link>
+              <Link to="/audit" className="font-sub text-sm text-[#E2B8A9] underline text-center" data-testid="outsourcing-cta-audit">
+                or Request Your Free CPA Capacity Assessment
+              </Link>
+            </div>
           </div>
         </div>
       </section>

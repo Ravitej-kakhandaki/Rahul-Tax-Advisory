@@ -127,24 +127,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FREE CPA CAPACITY AUDIT --------------------------------- */}
+      {/* FREE CPA CAPACITY ASSESSMENT --------------------------- */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-24" data-testid="home-audit-promo">
-        <div className="grid md:grid-cols-12 gap-10 items-center">
-          <div className="md:col-span-7">
-            <p className="kicker">Free CPA Capacity Audit</p>
-            <h2 className="font-serif-display text-4xl md:text-5xl text-[#1C3F39] mt-4 leading-tight">
-              Not sure what to outsource? Find out — for free.
+        <div className="grid md:grid-cols-12 gap-8 items-start">
+          {/* Left — 70% — Capacity Assessment */}
+          <div className="md:col-span-8 bg-[#FFFFFF] border border-[#1C3F39]/15 p-10 md:p-14">
+            <p className="kicker">Free CPA Capacity Assessment</p>
+            <h2 className="font-serif-display text-4xl md:text-6xl text-[#1C3F39] mt-4 leading-[1.05]">
+              Discover your firm's next capacity opportunity.
             </h2>
-            <p className="mt-5 text-[#1C3F39]/75 text-lg max-w-2xl">
-              Get a personalized CPA Capacity Report showing where your firm can create additional
-              capacity without compromising quality — delivered within two business days.
+            <p className="mt-6 text-[#1C3F39]/75 text-lg max-w-2xl">
+              Receive a personalized CPA Capacity Report designed to help your firm improve
+              efficiency, strengthen workflows, and create more time for high-value client
+              relationships.
             </p>
-            <ul className="mt-6 grid sm:grid-cols-2 gap-3 font-sub">
+            <p className="kicker mt-8">Your report includes</p>
+            <ul className="mt-3 grid sm:grid-cols-2 gap-3 font-sub">
               {[
-                "Estimated hours saved",
-                "Recommended support package",
-                "Workflow suggestions",
-                "Busy season strategy",
+                "Capacity and workflow assessment",
+                "Tax & accounting support opportunities",
+                "Busy season readiness insights",
+                "Recommended engagement approach",
               ].map((b, i) => (
                 <li key={i} className="flex items-start gap-2 text-[#1C3F39]">
                   <CheckCircle2 size={18} strokeWidth={1.5} className="text-[#A85A46] mt-0.5 shrink-0" />
@@ -152,56 +155,55 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-3">
               <Link to="/audit" className="btn-primary" data-testid="home-audit-cta">
-                Get my Free Capacity Audit <ArrowUpRight size={16} strokeWidth={1.5} />
+                Get My Free Capacity Assessment <ArrowUpRight size={16} strokeWidth={1.5} />
               </Link>
-              <a
-                href="/cpa-offshore-readiness-checklist.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost"
-                data-testid="home-checklist-cta"
-              >
-                <Download size={16} strokeWidth={1.5} /> Download Readiness Checklist
-              </a>
+              <Link to="/book" className="btn-ghost" data-testid="home-audit-book">
+                Or book a CPA Growth Call
+              </Link>
             </div>
           </div>
-          <div className="md:col-span-5 md:col-start-8">
-            <div className="border border-[#1C3F39]/15 bg-[#FFFFFF] p-8">
-              <div className="flex items-baseline justify-between">
-                <p className="kicker">Free guide · PDF</p>
-                <span className="text-[10px] uppercase tracking-[0.18em] font-sub text-[#1C3F39]/55">6 sections</span>
-              </div>
-              <h3 className="font-serif-display text-2xl md:text-3xl text-[#1C3F39] mt-3 leading-snug">
-                The CPA Firm Offshore Readiness Checklist
-              </h3>
-              <ul className="mt-5 space-y-2.5 text-[14.5px] text-[#1C3F39]/80 font-sub">
-                {[
-                  "Is your firm ready for offshore support?",
-                  "12 tasks ideal for outsourcing first",
-                  "Security & confidentiality checklist",
-                  "Workflow preparation checklist",
-                  "Busy season planning guide",
-                  "How to evaluate an offshore partner",
-                ].map((b, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="mt-1.5 inline-block w-1.5 h-1.5 rounded-full bg-[#A85A46]" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="/cpa-offshore-readiness-checklist.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-terra mt-6 w-full justify-center"
-                data-testid="home-checklist-download"
-              >
-                Download free guide <Download size={16} strokeWidth={1.5} />
-              </a>
+
+          {/* Right — 30% — PDF Playbook */}
+          <aside className="md:col-span-4 bg-[#1C3F39] text-[#F9F6F0] p-8 md:p-10 self-stretch flex flex-col">
+            <div className="flex items-baseline justify-between">
+              <p className="kicker text-[#E2B8A9]">Free guide · PDF</p>
+              <span className="text-[10px] uppercase tracking-[0.18em] font-sub text-[#F9F6F0]/55">7 pages</span>
             </div>
-          </div>
+            <h3 className="font-serif-display text-2xl md:text-3xl mt-3 leading-snug">
+              The CPA Firm Capacity &amp; Growth Playbook
+            </h3>
+            <p className="mt-3 text-[#F9F6F0]/80 text-sm leading-relaxed">
+              A practical guide for CPA firm leaders looking to build sustainable capacity and
+              improve operational efficiency.
+            </p>
+            <p className="kicker text-[#E2B8A9] mt-6">Inside the guide</p>
+            <ul className="mt-3 space-y-2 text-[13.5px] font-sub flex-1">
+              {[
+                "Capacity assessment framework",
+                "High-impact tax & accounting tasks",
+                "Workflow optimization strategies",
+                "Quality & confidentiality best practices",
+                "Busy season preparation plan",
+                "Choosing the right CPA support partner",
+              ].map((b, i) => (
+                <li key={i} className="flex items-start gap-2 text-[#F9F6F0]/90">
+                  <span className="mt-1.5 inline-block w-1.5 h-1.5 rounded-full bg-[#E2B8A9] shrink-0" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/cpa-firm-capacity-growth-playbook.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-terra mt-8 w-full justify-center"
+              data-testid="home-checklist-download"
+            >
+              Download free guide <Download size={16} strokeWidth={1.5} />
+            </a>
+          </aside>
         </div>
       </section>
 

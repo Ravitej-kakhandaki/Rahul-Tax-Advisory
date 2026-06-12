@@ -1,27 +1,34 @@
-"""Generates the downloadable CPA Firm Offshore Readiness Checklist PDF."""
+"""Generates The CPA Firm Capacity & Growth Playbook (PDF)."""
 from reportlab.lib.pagesizes import LETTER
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.lib.colors import HexColor
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, ListFlowable, ListItem, PageBreak
+from reportlab.platypus import (
+    SimpleDocTemplate, Paragraph, Spacer, ListFlowable, ListItem, PageBreak, Table, TableStyle,
+)
 from reportlab.lib.enums import TA_LEFT
 
 INK = HexColor("#1C3F39")
 TERRA = HexColor("#A85A46")
 MUTED = HexColor("#4B5563")
+PAPER = HexColor("#F9F6F0")
 
-OUTPUT = "/app/frontend/public/cpa-offshore-readiness-checklist.pdf"
+OUTPUT = "/app/frontend/public/cpa-firm-capacity-growth-playbook.pdf"
 
 styles = getSampleStyleSheet()
-H1 = ParagraphStyle("H1", parent=styles["Title"], fontName="Times-Roman", fontSize=28, leading=32, textColor=INK, spaceAfter=4)
+COVER_KICKER = ParagraphStyle("CK", parent=styles["Normal"], fontName="Helvetica-Bold", fontSize=10, leading=12, textColor=TERRA, spaceAfter=10, alignment=TA_LEFT)
+COVER_H1 = ParagraphStyle("CH1", parent=styles["Title"], fontName="Times-Roman", fontSize=34, leading=38, textColor=INK, spaceAfter=10)
+COVER_SUB = ParagraphStyle("CSUB", parent=styles["Normal"], fontName="Times-Italic", fontSize=14, leading=20, textColor=INK, spaceAfter=30)
 KICKER = ParagraphStyle("Kicker", parent=styles["Normal"], fontName="Helvetica-Bold", fontSize=9, leading=11, textColor=TERRA, spaceAfter=6, alignment=TA_LEFT)
-H2 = ParagraphStyle("H2", parent=styles["Heading2"], fontName="Times-Roman", fontSize=18, leading=22, textColor=INK, spaceBefore=18, spaceAfter=8)
+H1 = ParagraphStyle("H1", parent=styles["Title"], fontName="Times-Roman", fontSize=26, leading=30, textColor=INK, spaceAfter=4, alignment=TA_LEFT)
+H2 = ParagraphStyle("H2", parent=styles["Heading2"], fontName="Times-Roman", fontSize=18, leading=22, textColor=INK, spaceBefore=14, spaceAfter=6)
 H3 = ParagraphStyle("H3", parent=styles["Heading3"], fontName="Helvetica-Bold", fontSize=11, leading=14, textColor=INK, spaceBefore=10, spaceAfter=4)
 BODY = ParagraphStyle("Body", parent=styles["BodyText"], fontName="Helvetica", fontSize=10.5, leading=15, textColor=INK, spaceAfter=6)
 SMALL = ParagraphStyle("Small", parent=styles["BodyText"], fontName="Helvetica", fontSize=9, leading=12, textColor=MUTED, spaceAfter=6)
+CTA = ParagraphStyle("CTA", parent=styles["Normal"], fontName="Helvetica-Bold", fontSize=12, leading=16, textColor=PAPER, alignment=TA_LEFT)
 
 
-def bullet_list(items):
+def bullets(items):
     return ListFlowable(
         [ListItem(Paragraph(it, BODY), leftIndent=10, bulletColor=TERRA) for it in items],
         bulletType="bullet",
@@ -33,139 +40,209 @@ def bullet_list(items):
     )
 
 
+def cta_block(text):
+    t = Table([[Paragraph(text, CTA)]], colWidths=[5.6 * inch])
+    t.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), INK),
+        ("TEXTCOLOR", (0, 0), (-1, -1), PAPER),
+        ("LEFTPADDING", (0, 0), (-1, -1), 16),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 16),
+        ("TOPPADDING", (0, 0), (-1, -1), 14),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 14),
+    ]))
+    return t
+
+
 def build():
     doc = SimpleDocTemplate(
         OUTPUT, pagesize=LETTER,
         leftMargin=0.9 * inch, rightMargin=0.9 * inch,
         topMargin=0.9 * inch, bottomMargin=0.9 * inch,
-        title="The CPA Firm Offshore Readiness Checklist — Rahul Tax Advisory",
-        author="Rahul Tax Advisory",
+        title="The CPA Firm Capacity & Growth Playbook — Rahul Tax Advisory",
+        author="Rahul G Sataraddi · Rahul Tax Advisory",
     )
     story = []
 
-    # Cover
+    # ---------- Page 1: Cover ----------
     story += [
-        Paragraph("Rahul Tax Advisory · Free Guide", KICKER),
-        Paragraph("The CPA Firm Offshore Readiness Checklist", H1),
+        Paragraph("Rahul Tax Advisory · Free Guide", COVER_KICKER),
+        Spacer(1, 90),
+        Paragraph("The CPA Firm Capacity &amp; Growth Playbook", COVER_H1),
         Paragraph(
-            "A practical, partner-level guide for US CPA firm owners considering offshore tax, "
-            "accounting and advisory support — covering readiness, ideal tasks, security, workflow "
-            "and how to evaluate the right partner.",
-            BODY,
+            "A practical guide for CPA firms looking to increase capacity, improve efficiency, "
+            "and create more opportunities for advisory growth.",
+            COVER_SUB,
         ),
-        Spacer(1, 18),
-        Paragraph("What you'll get from this guide", H3),
-        bullet_list([
-            "A clear yes / no on whether your firm is ready for offshore right now",
-            "The 12 tasks most CPA firms safely outsource first",
-            "A security & confidentiality checklist your IT lead will approve",
-            "A workflow preparation checklist to avoid season-one chaos",
-            "A busy season planning guide built around offshore capacity",
-            "A vendor scoring rubric for evaluating offshore partners",
-        ]),
+        Spacer(1, 110),
+        Paragraph("By Rahul G Sataraddi", BODY),
+        Paragraph("US Tax Professional &nbsp;|&nbsp; CPA Candidate", BODY),
+        Paragraph("Nearly 4 Years Supporting US CPA Firms", BODY),
         PageBreak(),
     ]
 
-    # Section 1
+    # ---------- Page 2: Capacity Assessment ----------
     story += [
-        Paragraph("01 · Readiness", KICKER),
-        Paragraph("Is your firm ready for offshore support?", H2),
-        Paragraph("Score each statement Yes / No. Six or more 'Yes' answers means you're ready.", SMALL),
-        bullet_list([
-            "We can describe at least one repeatable task we wish we didn't do.",
-            "We have a defined review checklist (even if informal).",
-            "We use one of CCH Axcess, UltraTax, ProConnect or Drake.",
-            "We have a secure document portal (or are willing to adopt one).",
-            "We can dedicate 1 partner / manager as a point of contact.",
-            "We are open to a small pilot before scaling.",
-            "Our team uses a defined client folder structure.",
-            "We have prior-year workpapers accessible for context.",
+        Paragraph("Page 2 · Self-Assessment", KICKER),
+        Paragraph("Is Your Firm Ready to Scale?", H1),
+        Paragraph("CPA Capacity Assessment", H2),
+        Paragraph(
+            "A simple self-assessment to gauge where your firm stands today. The more 'Yes' answers, "
+            "the bigger the opportunity to free up partner time and create capacity for growth.",
+            BODY,
+        ),
+        Spacer(1, 10),
+        bullets([
+            "Are partners spending too much time on compliance work?",
+            "Are busy season deadlines creating capacity pressure?",
+            "Is your team spending less time on high-value advisory services?",
+            "Are extension and post-season projects slowing growth?",
+            "Are workflows documented and efficient?",
+            "Do reviewers have enough hours to maintain quality standards?",
+            "Is the firm losing time to bookkeeping cleanup and notice resolution?",
         ]),
         Spacer(1, 8),
-        Paragraph("02 · Tasks Ideal for Outsourcing", KICKER),
-        Paragraph("Start with these.", H2),
-        bullet_list([
-            "Form 1040 preparation (individual returns, including Sch C, E, K-1 reconciliations)",
-            "Form 1065 partnership preparation and K-1 generation",
-            "Form 1120 / 1120-S corporate preparation",
-            "Form 990 non-profit preparation",
-            "First-level review on staff-prepared returns",
-            "Quarterly tax projections and safe-harbor estimates",
-            "Bookkeeping and monthly reconciliations in QuickBooks",
-            "Tax notice triage and response drafting",
-            "Engagement-letter and organizer preparation",
-            "Workpaper standardization and tickmarking",
-            "Amended return preparation",
-            "Off-season cleanup and bookkeeping catch-up",
-        ]),
-        PageBreak(),
-    ]
-
-    # Section 3
-    story += [
-        Paragraph("03 · Security & Confidentiality", KICKER),
-        Paragraph("Security & confidentiality checklist.", H2),
-        bullet_list([
-            "Signed NDA before any client data is shared",
-            "All work performed inside firm-approved environments (no local downloads)",
-            "MFA on every system: email, software, document portal",
-            "Encrypted document portal (SmartVault, ShareFile, Suralink, etc.)",
-            "Background checks / ID verification on offshore staff",
-            "Workstation policy — no removable media, locked screen on idle",
-            "Audit trail on document access and tax software usage",
-            "Annual security review meeting between firm and partner",
-        ]),
-        Paragraph("04 · Workflow Preparation", KICKER),
-        Paragraph("Set yourself up to win in season one.", H2),
-        bullet_list([
-            "Standardize your client folder structure and document naming",
-            "Document your firm's review checklist — even one page is enough",
-            "Define what 'review-ready' means at your firm (workpaper standards, tickmarks)",
-            "Assign a single point of contact at the firm (not 4 people in parallel)",
-            "Agree turnaround SLAs in writing (e.g., 5 business days for 1040)",
-            "Use a shared status tracker — TaxDome, Karbon, Liscio, or a simple sheet",
-            "Schedule a 15-minute weekly status call during busy season",
-            "Plan capacity for surge weeks (last 2 weeks of March, first 2 of April)",
-        ]),
-        PageBreak(),
-    ]
-
-    # Section 4
-    story += [
-        Paragraph("05 · Busy Season Planning", KICKER),
-        Paragraph("A repeatable busy season plan.", H2),
-        bullet_list([
-            "November: confirm offshore capacity and lock SLAs for the coming season",
-            "December: dry-run the document handoff for 5 sample clients",
-            "January: ramp begins; first 25 returns prepared and reviewed end-to-end",
-            "February: hit weekly throughput targets; weekly status call live",
-            "March: peak weeks — surge capacity activated; daily standups if needed",
-            "April: extensions filed, post-season retro within 10 days of 4/15",
-            "Off-season: amended returns, notices, planning work, training updates",
-        ]),
-        Paragraph("06 · Evaluating an Offshore Partner", KICKER),
-        Paragraph("Scoring rubric — score each 1–5.", H2),
-        bullet_list([
-            "Direct access to the actual preparer (not just an account manager)",
-            "Hands-on experience with your tax software",
-            "Form coverage: 1040, 1065, 1120, 1120-S, 990",
-            "Documented quality control and review approach",
-            "Tax planning capability beyond compliance",
-            "Time-zone overlap with US working hours",
-            "Pilot / small-scale engagement available",
-            "Clear security posture and NDA process",
-            "References or anonymized case studies available",
-            "Communication discipline (response SLAs, weekly status)",
-        ]),
-        Spacer(1, 12),
-        Paragraph("A score of 40+ out of 50 typically indicates a strong partner.", SMALL),
-        Spacer(1, 22),
-        Paragraph("Next step", H3),
         Paragraph(
-            "Take the Free CPA Capacity Audit at <b>rahultaxadvisory.com/audit</b> — a 15-minute "
-            "assessment that maps your firm's specific bottlenecks to an offshore support model.",
+            "<i>Four or more 'Yes' answers usually indicates a meaningful capacity opportunity worth exploring.</i>",
+            SMALL,
+        ),
+        PageBreak(),
+    ]
+
+    # ---------- Page 3: High-Impact Areas ----------
+    story += [
+        Paragraph("Page 3 · Where Capacity Comes From", KICKER),
+        Paragraph("High-Impact Areas to Create Capacity", H1),
+
+        Paragraph("Tax Compliance", H2),
+        bullets([
+            "Individual tax engagements",
+            "Partnership tax engagements",
+            "Corporate &amp; S-Corporation engagements",
+            "Non-profit tax engagements",
+            "Extensions and amended returns",
+        ]),
+        Paragraph("Bookkeeping &amp; Cleanup", H2),
+        bullets([
+            "Monthly bookkeeping",
+            "Catch-up bookkeeping",
+            "Historical cleanup projects",
+            "Reconciliations",
+            "Tax-ready financial records",
+        ]),
+        Paragraph("Tax Planning &amp; Advisory", H2),
+        bullets([
+            "Tax projections",
+            "Scenario analysis",
+            "Research support",
+            "Advisory documentation",
+        ]),
+        PageBreak(),
+    ]
+
+    # ---------- Page 4: Quality & Workflow Excellence ----------
+    story += [
+        Paragraph("Page 4 · Quality &amp; Workflow Excellence", KICKER),
+        Paragraph("A Successful CPA Firm Partnership Is Built On:", H1),
+        Spacer(1, 10),
+        bullets([
+            "Alignment with your firm's workflow",
+            "Review-ready documentation",
+            "Clear communication",
+            "Confidentiality and professional standards",
+            "Consistent turnaround expectations",
+            "Reliable year-round collaboration",
+        ]),
+        Spacer(1, 14),
+        Paragraph("The quality bar that matters", H3),
+        Paragraph(
+            "The right partnership doesn't simply add hours — it adds the right hours. Documentation "
+            "matched to your QC checklist. Workpapers a partner can sign without a second loop. "
+            "Communication on the cadence your firm runs on. That's what makes outside capacity "
+            "feel internal.",
             BODY,
         ),
+        PageBreak(),
+    ]
+
+    # ---------- Page 5: Flexible Engagement Models ----------
+    story += [
+        Paragraph("Page 5 · Engagement Options", KICKER),
+        Paragraph("Flexible Engagement Models", H1),
+
+        Paragraph("Seasonal Tax Support", H2),
+        Paragraph(
+            "Designed for firms needing additional capacity during peak tax periods.",
+            BODY,
+        ),
+        Paragraph("Year-Round Tax &amp; Advisory Support", H2),
+        Paragraph(
+            "Ongoing collaboration across tax, accounting, bookkeeping, and advisory needs.",
+            BODY,
+        ),
+        Paragraph("CPA Firm Outsourcing &amp; Offshore Staffing", H2),
+        Paragraph(
+            "Dedicated tax and accounting professionals aligned with your firm's workflow and quality standards.",
+            BODY,
+        ),
+        Paragraph("Project-Based Support", H2),
+        Paragraph(
+            "Ideal for special projects, cleanup engagements, notices, and specific client needs.",
+            BODY,
+        ),
+        Spacer(1, 12),
+        Paragraph(
+            "Every CPA firm has unique capacity requirements and growth objectives. Engagement "
+            "models are designed to provide flexible professional support with transparent scoping, "
+            "operational efficiency, and long-term value.",
+            SMALL,
+        ),
+        PageBreak(),
+    ]
+
+    # ---------- Page 6: Why CPA Firms Partner ----------
+    story += [
+        Paragraph("Page 6 · Why Partner With Rahul Tax Advisory", KICKER),
+        Paragraph("A boutique partner for long-term CPA firm partnerships.", H1),
+        Spacer(1, 10),
+        bullets([
+            "Nearly 4 years supporting US CPA firms",
+            "Experience across tax, bookkeeping, and advisory engagements",
+            "CPA Candidate (REG &amp; TCP cleared)",
+            "Direct communication and accountability",
+            "Flexible engagement structures",
+            "Commitment to quality and confidentiality",
+            "Technology-adaptive — fits into your existing systems and workflows",
+        ]),
+        Spacer(1, 20),
+        Paragraph(
+            "<i>\"My mission is to help CPA firms increase capacity, maintain exceptional quality, "
+            "and create more opportunities to focus on the advisory relationships that drive "
+            "long-term growth.\"</i>",
+            BODY,
+        ),
+        Paragraph("— Rahul G Sataraddi, Founder", SMALL),
+        PageBreak(),
+    ]
+
+    # ---------- Page 7: Next Step CTA ----------
+    story += [
+        Paragraph("Page 7 · Next Step", KICKER),
+        Paragraph("Discover Your Firm's Capacity Opportunities", H1),
+        Paragraph(
+            "Receive a personalized CPA Capacity Assessment that identifies:",
+            BODY,
+        ),
+        bullets([
+            "Capacity improvement opportunities",
+            "Recommended engagement approach",
+            "Workflow enhancement ideas",
+            "Busy season readiness insights",
+        ]),
+        Spacer(1, 18),
+        cta_block("Schedule Your Complimentary CPA Growth Conversation"),
+        Spacer(1, 12),
+        Paragraph("rahultaxadvisory.com/book &nbsp;·&nbsp; rahultaxadvisory.com/audit", BODY),
+        Spacer(1, 30),
         Paragraph(
             "© Rahul Tax Advisory · General information only — not tax, legal or accounting advice.",
             SMALL,

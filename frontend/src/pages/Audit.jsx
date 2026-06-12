@@ -15,12 +15,12 @@ const challenges = [
 ];
 
 const deliverables = [
-  { icon: Layers,         title: "Capacity gap analysis",          desc: "Where your firm is losing hours today." },
-  { icon: Clock,          title: "Busy season bottleneck review",  desc: "Which weeks break — and why." },
-  { icon: ClipboardList,  title: "Tasks suitable for offshore",    desc: "What to delegate first, ranked by risk." },
-  { icon: FileSpreadsheet,title: "Hours & cost savings estimate",  desc: "A number you can take to your partners." },
-  { icon: Sparkles,       title: "Recommended support model",      desc: "Seasonal, year-round, or team buildout." },
-  { icon: ShieldCheck,    title: "Workflow & security recommendations", desc: "What to put in place before season." },
+  { icon: Layers,         title: "Capacity & workflow assessment",       desc: "Where time is going today across compliance, accounting and advisory." },
+  { icon: Clock,          title: "Busy season readiness insights",       desc: "Which weeks are most at risk — and where to add capacity first." },
+  { icon: ClipboardList,  title: "Tax & accounting support opportunities", desc: "High-impact areas to free up partner and reviewer time." },
+  { icon: FileSpreadsheet,title: "Hours & efficiency estimate",           desc: "A concrete view of the capacity available to your firm." },
+  { icon: Sparkles,       title: "Recommended engagement approach",      desc: "Seasonal, year-round, project-based or dedicated capacity." },
+  { icon: ShieldCheck,    title: "Quality & workflow excellence",        desc: "Recommendations for review-ready documentation and communication cadence." },
 ];
 
 export default function Audit() {
@@ -41,7 +41,7 @@ export default function Audit() {
     setBusy(true);
     try {
       await api.post("/audits", form);
-      toast.success("Capacity Audit requested — I'll send your report within 2 business days.");
+      toast.success("Capacity Assessment requested — I'll send your report within 2 business days.");
       setDone(true);
     } catch (err) {
       toast.error(formatApiError(err.response?.data?.detail) || "Could not submit.");
@@ -53,15 +53,15 @@ export default function Audit() {
       <div className="max-w-[900px] mx-auto px-6 md:px-12 py-32 text-center" data-testid="audit-done">
         <p className="kicker">Received</p>
         <h1 className="font-serif-display text-5xl md:text-6xl text-[#1C3F39] mt-4 leading-tight">
-          Your Capacity Audit is on the way.
+          Your Capacity Assessment is on the way.
         </h1>
         <p className="mt-6 text-lg text-[#1C3F39]/75">
           I'll review your firm's profile and send a personalized capacity report from
           <strong> rahul@rahultaxadvisory.com </strong> within 2 business days.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <a href="/cpa-offshore-readiness-checklist.pdf" target="_blank" rel="noopener noreferrer" className="btn-primary" data-testid="audit-download-checklist">
-            Download the Readiness Checklist <Download size={16} strokeWidth={1.5} />
+          <a href="/cpa-firm-capacity-growth-playbook.pdf" target="_blank" rel="noopener noreferrer" className="btn-primary" data-testid="audit-download-checklist">
+            Download the Capacity &amp; Growth Playbook <Download size={16} strokeWidth={1.5} />
           </a>
           <Link to="/book" className="btn-ghost" data-testid="audit-book">
             Book a CPA Growth Call <ArrowUpRight size={16} strokeWidth={1.5} />
@@ -75,27 +75,27 @@ export default function Audit() {
     <div data-testid="page-audit">
       {/* HERO --------------------------------------------------- */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 pt-16 md:pt-24 pb-12">
-        <p className="kicker">Free CPA Capacity Audit</p>
+        <p className="kicker">Free CPA Capacity Assessment</p>
         <h1 className="font-serif-display text-5xl md:text-7xl text-[#1C3F39] mt-4 leading-[0.95] max-w-5xl">
-          Discover how many tax hours your firm can free up this busy season.
+          Discover your firm's next capacity opportunity.
         </h1>
         <p className="mt-8 text-xl text-[#1C3F39]/75 max-w-3xl">
-          A 15-minute assessment that identifies which tax, bookkeeping and advisory tasks can be
-          safely outsourced — while maintaining your firm's quality standards.
+          A personalized CPA Capacity Report designed to help your firm improve efficiency,
+          strengthen workflows, and create more time for high-value client relationships.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <a href="#audit-form" className="btn-primary" data-testid="audit-cta-start">
-            Start my free audit <ArrowUpRight size={16} strokeWidth={1.5} />
+            Get my Free Capacity Assessment <ArrowUpRight size={16} strokeWidth={1.5} />
           </a>
           <a
-            href="/cpa-offshore-readiness-checklist.pdf"
+            href="/cpa-firm-capacity-growth-playbook.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-ghost"
             data-testid="audit-cta-pdf"
           >
-            <Download size={16} strokeWidth={1.5} /> Download the Readiness Checklist (PDF)
+            <Download size={16} strokeWidth={1.5} /> Download the Capacity &amp; Growth Playbook (PDF)
           </a>
         </div>
       </section>
@@ -112,8 +112,8 @@ export default function Audit() {
             </div>
             <div className="md:col-span-5 md:col-start-8 self-end">
               <p className="text-[#1C3F39]/75 text-lg">
-                Delivered within two business days as a partner-ready document — usable in your next
-                management meeting.
+                Delivered within two business days as a partner-ready document — usable in your
+                next management meeting.
               </p>
             </div>
           </div>
@@ -224,16 +224,16 @@ export default function Audit() {
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <button type="submit" disabled={busy} className="btn-primary disabled:opacity-60" data-testid="audit-submit">
-                {busy ? "Submitting…" : "Get my Capacity Audit"} <ArrowUpRight size={16} strokeWidth={1.5} />
+                {busy ? "Submitting…" : "Get my Capacity Assessment"} <ArrowUpRight size={16} strokeWidth={1.5} />
               </button>
               <a
-                href="/cpa-offshore-readiness-checklist.pdf"
+                href="/cpa-firm-capacity-growth-playbook.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-ghost"
                 data-testid="audit-form-pdf"
               >
-                <Download size={16} strokeWidth={1.5} /> Get the Readiness Checklist PDF
+                <Download size={16} strokeWidth={1.5} /> Get the Capacity &amp; Growth Playbook PDF
               </a>
             </div>
             <p className="text-xs text-[#1C3F39]/55 font-sub">No sales calls. Confidential. Report by email only.</p>
