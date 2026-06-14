@@ -307,9 +307,9 @@ export default function Home() {
 
             <div className="md:col-span-4 md:col-start-9 grid gap-3">
               {[
-                { name: "Bookkeeping",          price: "$9 / hr  or  $1,500 / mo" },
-                { name: "US Tax Professional",  price: "from $1,800 / mo" },
-                { name: "Tax Advisory & Planning", price: "from $2,200 / mo" },
+                { name: "Bookkeeping",          price: "$9 / hr  or  $1,499 / mo" },
+                { name: "US Tax Professional",  price: "from $1,899 / mo" },
+                { name: "Tax Advisory & Planning", price: "from $2,199 / mo" },
               ].map((t, i) => (
                 <div key={i} className="bg-[#FFFFFF] border border-[#1C3F39]/15 p-5 flex items-center justify-between gap-4" data-testid={`home-pricing-tier-${i}`}>
                   <div>
