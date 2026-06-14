@@ -261,6 +261,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PRICING HIGHLIGHT --------------------------------------- */}
+      <section className="bg-[#F2EEE5]" data-testid="home-pricing-highlight">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-24">
+          <div className="grid md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-7">
+              <p className="kicker">Pricing</p>
+              <h2 className="font-serif-display text-4xl md:text-5xl text-[#1C3F39] mt-4 leading-tight">
+                Expert offshore accounting support.
+              </h2>
+              <p className="mt-5 font-serif-display text-2xl md:text-3xl text-[#A85A46] leading-tight" data-testid="home-pricing-line">
+                Starting at <span className="text-[#1C3F39] font-medium">$9</span>
+                <span className="text-[#1C3F39]/70 text-xl"> / hour</span>
+                <span className="text-[#1C3F39]/30 mx-3">|</span>
+                Dedicated Professionals from{" "}
+                <span className="text-[#1C3F39] font-medium">$1,500</span>
+                <span className="text-[#1C3F39]/70 text-xl"> / month</span>
+              </p>
+              <p className="mt-6 text-[#1C3F39]/75 text-lg max-w-2xl">
+                High-quality bookkeeping, tax, and accounting support tailored for CPA firms and
+                growing businesses.
+              </p>
+              <ul className="mt-7 grid sm:grid-cols-2 gap-3 font-sub">
+                {[
+                  "Experienced US Accounting Professionals",
+                  "Flexible Engagement Models",
+                  "Secure & Confidential Process",
+                  "Accurate & Timely Delivery",
+                ].map((b, i) => (
+                  <li key={i} className="flex items-start gap-2 text-[#1C3F39]">
+                    <CheckCircle2 size={18} strokeWidth={1.5} className="text-[#A85A46] mt-0.5 shrink-0" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link to="/book" className="btn-primary" data-testid="home-pricing-cta">
+                  Schedule a Free Consultation <ArrowUpRight size={16} strokeWidth={1.5} />
+                </Link>
+                <Link to="/pricing" className="btn-ghost" data-testid="home-pricing-view">
+                  View all engagement plans
+                </Link>
+              </div>
+            </div>
+
+            <div className="md:col-span-4 md:col-start-9 grid gap-3">
+              {[
+                { name: "Bookkeeping",          price: "$9 / hr  or  $1,500 / mo" },
+                { name: "US Tax Professional",  price: "from $1,800 / mo" },
+                { name: "Tax Advisory & Planning", price: "from $2,200 / mo" },
+              ].map((t, i) => (
+                <div key={i} className="bg-[#FFFFFF] border border-[#1C3F39]/15 p-5 flex items-center justify-between gap-4" data-testid={`home-pricing-tier-${i}`}>
+                  <div>
+                    <p className="font-serif-display text-lg text-[#1C3F39] leading-snug">{t.name}</p>
+                    <p className="text-[11px] font-sub uppercase tracking-[0.2em] text-[#A85A46] mt-1">Starting price</p>
+                  </div>
+                  <p className="font-serif-display text-base text-[#1C3F39]/85 whitespace-nowrap">{t.price}</p>
+                </div>
+              ))}
+              <p className="text-xs font-sub text-[#1C3F39]/55 mt-2 text-center">Professional expertise. Transparent pricing. Scalable offshore support.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* TECHNOLOGY-ADAPTIVE APPROACH -------------------------- */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20" data-testid="tech-adaptive">
         <div className="grid md:grid-cols-12 gap-10 items-center">

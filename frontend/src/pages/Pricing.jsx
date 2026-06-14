@@ -244,6 +244,182 @@ export default function Pricing() {
         </div>
       </section>
 
+      {/* DEDICATED PROFESSIONAL PLANS -------------------------- */}
+      <section className="bg-[#1C3F39] text-[#F9F6F0]" data-testid="dedicated-plans">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-28">
+          <div className="grid md:grid-cols-12 gap-10 mb-14">
+            <div className="md:col-span-6">
+              <p className="kicker text-[#E2B8A9]">Dedicated Offshore Professionals</p>
+              <h2 className="font-serif-display text-4xl md:text-5xl mt-4 leading-tight">
+                Hire a dedicated offshore team member — not just hours.
+              </h2>
+            </div>
+            <div className="md:col-span-5 md:col-start-8 self-end">
+              <p className="text-[#F9F6F0]/80 text-lg">
+                Each dedicated plan provides a named professional, direct communication, and the
+                full premium engagement framework. Choose the seniority and scope that fits.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                tag: "Bookkeeping Professional",
+                price: "$1,500",
+                unit: "/ month",
+                blurb: "Your dedicated accounting resource for accurate and timely bookkeeping.",
+                items: [
+                  "Dedicated Full-Time Professional (up to 160 Hours/Month)",
+                  "Daily, Weekly & Monthly Bookkeeping",
+                  "Bank & Credit Card Reconciliations",
+                  "Accounts Payable & Accounts Receivable Management",
+                  "General Ledger Maintenance",
+                  "Month-End & Year-End Closing Support",
+                  "Financial Statements & Management Reports",
+                  "QuickBooks & Cloud Accounting Expertise",
+                  "Direct Communication via Email / Teams / Zoom",
+                  "Secure Document Management & Confidentiality",
+                  "Dedicated Account Manager",
+                  "Quality Review Process",
+                  "Flexible Working Hours & Time Zone Coverage",
+                  "Process Documentation & Continuous Improvement",
+                ],
+              },
+              {
+                tag: "US Tax Professional",
+                price: "$1,800",
+                unit: "/ month",
+                blurb: "Dedicated tax expertise to support your CPA firm throughout the year.",
+                items: [
+                  "Dedicated US Tax Professional",
+                  "Preparation of Forms 1040, 1041, 1065, 1120 & 1120-S",
+                  "Tax Workpaper Preparation",
+                  "Tax Return Review Support",
+                  "Tax Research Assistance",
+                  "Tax Planning & Projections",
+                  "IRS & State Notice Assistance",
+                  "CCH Axcess, UltraTax, ProConnect & Drake Experience",
+                  "Busy Season Support",
+                  "Direct Communication & Daily Status Updates",
+                  "Confidential & Secure Workflow",
+                  "Quality Control Process",
+                ],
+                featured: true,
+              },
+              {
+                tag: "Tax Planning & Advisory Professional",
+                price: "$2,200",
+                unit: "/ month",
+                blurb: "Advanced accounting and tax advisory support for growing CPA firms.",
+                items: [
+                  "Senior-Level Tax & Advisory Professional",
+                  "Tax Planning Strategies",
+                  "Multi-Year Tax Projections",
+                  "Entity Selection & Tax Impact Analysis",
+                  "Complex Tax Research",
+                  "Client Meeting Support",
+                  "Financial Analysis & Advisory Reports",
+                  "Workflow Improvement & Process Optimization",
+                  "Dedicated Communication Channel",
+                  "Priority Turnaround Time",
+                  "Strict Data Security & Confidentiality",
+                ],
+              },
+            ].map((p, i) => (
+              <div
+                key={i}
+                className={`p-8 md:p-9 border flex flex-col ${p.featured ? "bg-[#F9F6F0] text-[#1C3F39] border-[#E2B8A9]" : "bg-[#14302B] border-[#F9F6F0]/15"}`}
+                data-testid={`dedicated-plan-${i}`}
+              >
+                <div className="flex items-center justify-between">
+                  <p className={`kicker ${p.featured ? "text-[#A85A46]" : "text-[#E2B8A9]"}`}>{p.tag}</p>
+                  {p.featured && (
+                    <span className="text-[10px] uppercase tracking-[0.22em] font-sub text-[#F9F6F0] bg-[#1C3F39] px-2 py-1">
+                      Most popular
+                    </span>
+                  )}
+                </div>
+                <div className="mt-5 flex items-baseline gap-2">
+                  <span className={`font-serif-display text-5xl leading-none ${p.featured ? "text-[#1C3F39]" : "text-[#F9F6F0]"}`}>{p.price}</span>
+                  <span className={`font-sub text-base ${p.featured ? "text-[#1C3F39]/60" : "text-[#F9F6F0]/65"}`}>{p.unit}</span>
+                </div>
+                <p className={`mt-5 leading-relaxed ${p.featured ? "text-[#1C3F39]/80" : "text-[#F9F6F0]/85"}`}>{p.blurb}</p>
+
+                <ul className="mt-6 space-y-2 flex-1">
+                  {p.items.map((it, j) => (
+                    <li key={j} className={`flex items-start gap-2 text-[14px] leading-snug ${p.featured ? "text-[#1C3F39]/85" : "text-[#F9F6F0]/90"}`}>
+                      <CheckCircle2 size={14} strokeWidth={1.7} className={p.featured ? "text-[#A85A46] mt-1 shrink-0" : "text-[#E2B8A9] mt-1 shrink-0"} />
+                      <span>{it}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  to="/book"
+                  className={`mt-8 inline-flex items-center justify-center gap-2 ${p.featured ? "btn-primary" : "btn-terra"}`}
+                  data-testid={`dedicated-plan-cta-${i}`}
+                >
+                  Discuss your firm's needs <ArrowUpRight size={16} strokeWidth={1.5} />
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          {/* Premium features included in all dedicated plans */}
+          <div className="mt-16 border-t border-[#F9F6F0]/15 pt-12" data-testid="premium-features">
+            <div className="grid md:grid-cols-12 gap-10 mb-8">
+              <div className="md:col-span-6">
+                <p className="kicker text-[#E2B8A9]">Premium features</p>
+                <h3 className="font-serif-display text-3xl md:text-4xl mt-3 leading-tight">
+                  Included in all dedicated plans.
+                </h3>
+              </div>
+              <p className="md:col-span-5 md:col-start-8 self-end text-[#F9F6F0]/80 text-lg">
+                Every dedicated engagement comes with the full operating framework that makes
+                offshore feel internal.
+              </p>
+            </div>
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 font-sub">
+              {[
+                { icon: ShieldCheck,  label: "Secure & Confidential Data Handling" },
+                { icon: Users,        label: "Dedicated Offshore Professional" },
+                { icon: BadgeCheck,   label: "Direct Communication & Collaboration" },
+                { icon: FileSpreadsheet, label: "Regular Progress Updates" },
+                { icon: Clock,        label: "Quick Turnaround Time" },
+                { icon: Layers,       label: "Scalable Team Support" },
+                { icon: Calculator,   label: "Expertise in Leading US Accounting Software" },
+                { icon: TrendingUp,   label: "Flexible Time Zone Availability" },
+              ].map((f, i) => (
+                <li key={i} className="flex items-start gap-3 border border-[#F9F6F0]/15 p-4" data-testid={`premium-feature-${i}`}>
+                  <f.icon size={20} strokeWidth={1.4} className="text-[#E2B8A9] mt-0.5 shrink-0" />
+                  <span className="text-[#F9F6F0]/90 text-[14.5px] leading-snug">{f.label}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Summary pricing line */}
+            <div className="mt-12 grid md:grid-cols-12 gap-6 items-center border-t border-[#F9F6F0]/15 pt-10">
+              <div className="md:col-span-8 grid sm:grid-cols-3 gap-4">
+                {[
+                  { name: "Bookkeeping",            price: "from $9 / hr · $1,500 / mo" },
+                  { name: "US Tax Professional",    price: "from $1,800 / mo" },
+                  { name: "Tax Advisory & Planning", price: "from $2,200 / mo" },
+                ].map((s, i) => (
+                  <div key={i} className="border border-[#F9F6F0]/15 p-4">
+                    <p className="text-[11px] uppercase tracking-[0.2em] font-sub text-[#E2B8A9]">{s.name}</p>
+                    <p className="font-serif-display text-lg text-[#F9F6F0] mt-1 leading-snug">{s.price}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="md:col-span-4 font-serif-display text-2xl text-[#F9F6F0]/90 leading-snug">
+                Professional expertise. Transparent pricing. Scalable offshore support.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES INCLUDED ------------------------------------- */}
       <section className="bg-[#F2EEE5]" data-testid="pricing-services">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-24">
