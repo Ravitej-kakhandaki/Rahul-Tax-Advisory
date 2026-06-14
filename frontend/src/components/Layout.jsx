@@ -115,22 +115,24 @@ export function Footer() {
             <div>
               <p className="text-[#E2B8A9] uppercase text-[11px] tracking-[0.22em] mb-4">Services</p>
               <ul className="space-y-2 text-[#F9F6F0]/85">
-                <li><Link to="/services">Tax Preparation</Link></li>
-                <li><Link to="/services">Tax Planning</Link></li>
-                <li><Link to="/services">Bookkeeping</Link></li>
-                <li><Link to="/services">CPA Outsourcing</Link></li>
-                <li><Link to="/services">Notice Resolution</Link></li>
+                <li><Link to="/services#tax-prep" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-tax-prep">Tax Preparation</Link></li>
+                <li><Link to="/services#tax-planning" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-tax-planning">Tax Planning</Link></li>
+                <li><Link to="/services#bookkeeping" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-bookkeeping">Bookkeeping</Link></li>
+                <li><Link to="/services#outsourcing" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-outsourcing">CPA Outsourcing</Link></li>
+                <li><Link to="/services#notices" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-notices">Notice Resolution</Link></li>
+                <li><Link to="/services#staffing" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-staffing">Offshore Staffing</Link></li>
               </ul>
             </div>
             <div>
               <p className="text-[#E2B8A9] uppercase text-[11px] tracking-[0.22em] mb-4">Firm</p>
               <ul className="space-y-2 text-[#F9F6F0]/85">
-                <li><Link to="/about">About Rahul</Link></li>
-                <li><Link to="/results">Results</Link></li>
-                <li><Link to="/audit">Free Capacity Assessment</Link></li>
-                <li><Link to="/industries">Industries</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-                <li><Link to="/login">Client Portal</Link></li>
+                <li><Link to="/about" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-link-about">About Rahul</Link></li>
+                <li><Link to="/results" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-link-results">Results</Link></li>
+                <li><Link to="/audit" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-link-audit">Free Capacity Assessment</Link></li>
+                <li><Link to="/industries" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-link-industries">Industries</Link></li>
+                <li><Link to="/book" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-link-book">Book a Call</Link></li>
+                <li><Link to="/contact" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-link-contact">Contact</Link></li>
+                <li><Link to="/login" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-link-portal">Client Portal</Link></li>
               </ul>
             </div>
             <div>

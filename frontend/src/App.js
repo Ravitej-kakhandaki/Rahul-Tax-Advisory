@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider, useAuth } from "@/lib/auth";
 import Layout from "@/components/Layout";
 import ChatWidget from "@/components/ChatWidget";
+import ScrollToHash from "@/components/ScrollToHash";
 
 import Home from "@/pages/Home";
 import About from "@/pages/About";
@@ -31,6 +32,7 @@ export default function App() {
     <div className="App">
       <BrowserRouter>
         <AuthProvider>
+          <ScrollToHash />
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
