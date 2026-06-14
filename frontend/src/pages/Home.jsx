@@ -271,11 +271,11 @@ export default function Home() {
                 Expert offshore accounting support.
               </h2>
               <p className="mt-5 font-serif-display text-2xl md:text-3xl text-[#A85A46] leading-tight" data-testid="home-pricing-line">
-                Starting at <span className="text-[#1C3F39] font-medium">$9</span>
+                Flexible Support from <span className="text-[#1C3F39] font-medium">$9</span>
                 <span className="text-[#1C3F39]/70 text-xl"> / hour</span>
                 <span className="text-[#1C3F39]/30 mx-3">|</span>
-                Dedicated Professionals from{" "}
-                <span className="text-[#1C3F39] font-medium">$1,500</span>
+                Dedicated Experts from{" "}
+                <span className="text-[#1C3F39] font-medium">$1,499</span>
                 <span className="text-[#1C3F39]/70 text-xl"> / month</span>
               </p>
               <p className="mt-6 text-[#1C3F39]/75 text-lg max-w-2xl">
