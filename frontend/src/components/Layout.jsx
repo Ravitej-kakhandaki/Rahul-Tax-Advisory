@@ -7,6 +7,7 @@ const navItems = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
+  { to: "/pricing", label: "Pricing" },
   { to: "/results", label: "Results" },
   { to: "/audit", label: "Free Assessment" },
   { to: "/industries", label: "Industries" },
@@ -118,6 +119,7 @@ export function Footer() {
                 <li><Link to="/services#tax-prep" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-tax-prep">Tax Preparation</Link></li>
                 <li><Link to="/services#tax-planning" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-tax-planning">Tax Planning</Link></li>
                 <li><Link to="/services#bookkeeping" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-bookkeeping">Bookkeeping</Link></li>
+                <li><Link to="/pricing" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-pricing">Pricing</Link></li>
                 <li><Link to="/services#outsourcing" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-outsourcing">CPA Outsourcing</Link></li>
                 <li><Link to="/services#notices" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-notices">Notice Resolution</Link></li>
                 <li><Link to="/services#staffing" className="hover:text-[#E2B8A9] transition-colors" data-testid="footer-svc-staffing">Offshore Staffing</Link></li>
